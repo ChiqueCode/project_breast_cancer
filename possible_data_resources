@@ -1,0 +1,47 @@
+The Breast Cancer ML dataset (updated recently)
+https://www.kaggle.com/benyaengineering/breast-cancer-classification
+	⁃	Note - the reason this is such a highly used dataset for ML is that there is a LOT of fun stuff we can do with it in terms of ML
+
+Percentage of Medicare Recipients screened for breast cancer by year and county
+https://data.cms.gov/mapping-medicare-disparities
+	⁃	Select the following parameters:
+	⁃	Measure: Preventative Services
+	⁃	Condition/Service: Screening Mammography
+	⁃	Click “Download Data”
+
+Data from digital and film mammograms w/ BI-RADS density characteristics and risk factors
+https://datahub.io/JohnSnowLabs/mammography-data-from-breast-cancer-surveillance-consortium#data
+
+Cancer Incidence, Mortality, and Rate Ratios by demographics
+https://wonder.cdc.gov/cancer.html
+
+Medium article on breast cancer dataset
+https://medium.com/data-science-101/exploring-breast-cancer-data-set-b1053ea71781
+
+Dataset referenced in medium article
+https://github.com/jeffheaton/aifh/blob/master/vol1/python-examples/datasets/breast-cancer-wisconsin.csv
+	⁃	note- this might be a good dataset to use, but I think we’d have to find it provenance first
+
+I didn’t mention the following datasets on the call
+
+Worldwide cancer data
+https://ourworldindata.org/cancer
+	⁃	There is a lot of very interesting global information on cancer here; you have to scroll through to see
+	⁃	We could also use these metrics as ideas for other correlations (income, GDP, etc)
+	⁃	At the bottom are the sources of the data. We could go straight there to see if there is any other data we can use
+	⁃	This is one of the sources at the bottom. It’s complicated to use: http://ghdx.healthdata.org/gbd-results-tool
+
+
+UCI ML repository- a solid resource. There are multiple breast cancer datasets here used for determining breast cancer. Some of these might be usable (note the years)
+http://archive.ics.uci.edu/ml/datasets/mammographic+mass
+https://archive.ics.uci.edu/ml/datasets/breast+cancer+wisconsin+%28original%29
+https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29
+	⁃	note the two above are the same data from different years
+https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Coimbra
+http://archive.ics.uci.edu/ml/datasets/breast+tissue
+https://archive.ics.uci.edu/ml/datasets/Breast+Cancer
+
+miRNA profiling data 
+https://www.kaggle.com/rhostam/primary-breast-cancer-vs-normal-breast-tissue
+	⁃	this is a bit nutso
+
