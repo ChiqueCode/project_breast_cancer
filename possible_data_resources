@@ -1,4 +1,4 @@
-The Breast Cancer ML dataset (updated recently)
+
 https://www.kaggle.com/benyaengineering/breast-cancer-classification
 	⁃	Note - the reason this is such a highly used dataset for ML is that there is a LOT of fun stuff we can do with it in terms of ML
 
@@ -22,7 +22,6 @@ Dataset referenced in medium article
 https://github.com/jeffheaton/aifh/blob/master/vol1/python-examples/datasets/breast-cancer-wisconsin.csv
 	⁃	note- this might be a good dataset to use, but I think we’d have to find it provenance first
 
-I didn’t mention the following datasets on the call
 
 Worldwide cancer data
 https://ourworldindata.org/cancer
