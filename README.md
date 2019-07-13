@@ -33,3 +33,8 @@
         * develop, test, and validate model in notebook first
         * also include random function in ml.py
             * will be another route in our flask program
+            
+    Models to train & test:
+    1) Linear Regression
+    2) Logistics Model
+    3) Deep Learnign Model (Sonya)
