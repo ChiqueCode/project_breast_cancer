@@ -128,7 +128,8 @@ X = cancer.data
 # Select random feature
 n = random.randint(0, 568)
 sample = X[n]
-    
+
+# Is this a render template thing?    
 return sample
 
 
