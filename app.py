@@ -2,12 +2,12 @@
 import csv
 import os
 import pandas as pd 
-import pickle
 from flask import (
     Flask,
     render_template,
     request,
     jsonify)
+from joblib import load
 
 # import MySQLdb
 
@@ -139,10 +139,10 @@ def submit():
         fractal_dimension_se, radius_worst, texture_worst, perimeter_worst, area_worst,/
         smoothness_worst, compactness_worst, concavity_worst, concave points_worst,/
         symmetry_worst, fractal_dimension_worst]
-        
+
     # UPDATE NAME OF MODEL BASED ON WHERE WE SAVE IT
     # Load model and predict diagnosis
-    model = pickle.load(open(cancer_model))
+    model = load('cancer_model.joblib')
     diagnosis = model.predict(X)
 
     return diagnosis
