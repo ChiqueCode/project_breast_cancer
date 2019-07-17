@@ -100,17 +100,39 @@ def submit():
     # Collect input data when submit button is selected
     if request.method == "POST":
         
-        # Retrieve parameters and add to sample data
+        # Retrieve values and add to sample data
+        # MIGHT BE WORTHWHILE TO LOOP THIS AND MAKE THE HTML A LIST, LIKE parameter[i]
         sample = []
-        for i in range(30):
-           sample.append(request.form[f"parameter[{i}]"])
+        sample.append(request.form["radius_se"])
+        sample.append(request.form["texture_se"])
+        sample.append(request.form["radius_se"])
+        sample.append(request.form["perimeter_se"])
+        sample.append(request.form["area_se"])
+        sample.append(request.form["smoothness_se"])
+        sample.append(request.form["compactness_se"])
+        sample.append(request.form["concavity_se"])
+        sample.append(request.form["concave points_se"])
+        sample.append(request.form["concavity_se"])
+        sample.append(request.form["symmetry_se"])
+        sample.append(request.form["fractal_dimension_se"])
+        sample.append(request.form["symmetry_se"])
+        sample.append(request.form["radius_worst"])
+        sample.append(request.form["texture_worst"])
+        sample.append(request.form["perimeter_worst"])
+        sample.append(request.form["area_worst"])
+        sample.append(request.form["smoothness_worst"])
+        sample.append(request.form["compactness_worst"])
+        sample.append(request.form["concavity_worst"])
+        sample.append(request.form["concave_points_worst"])
+        sample.append(request.form["symmetry_worst"])
+        sample.append(request.form["fractal_dimension_worst"])
     
     # Load model and predict diagnosis
     model = load('cancer_model.joblib')
     prediction = model.predict(sample)
     if prediction == 0:
         diagnosis = "Benign"
-    else:
+    else
         diagnosis = "Malignant"
 
     return diagnosis

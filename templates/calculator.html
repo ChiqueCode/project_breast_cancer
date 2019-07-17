@@ -7,18 +7,20 @@
     <title>Biopsy </title>
 </head>
 <body>
-    <form method="POST" action="/send">
+    <form method="POST" action="/submit">
 
-        <label for="radius_mean">Radius Mean</label>
-        <input type="number" id="radius_mean" name="radius_mean">
+        <label>Radius Mean</label>
+        <input type="number" id="parameter[0]" name="parameter[0]">
     
-        <label for="texture_mean">Texture Mean</label>
-        <input type="number" id="texture_mean" name="texture_mean">
+        <label>Texture Mean</label>
+        <input type="number" id="parameter[1]" name="parameter[1]">
     
         <!-- Create form fields for each value -->
 
         <input type="submit" value="submit">
     </form>
+
+    <button method="POST" action="/random">Generate Random Sample</button>
     
 </body>
 </html>
