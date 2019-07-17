@@ -113,7 +113,8 @@ def submit():
     else:
         diagnosis = "Malignant"
 
-    return diagnosis
+    # return diagnosis
+    return render_template("index.html", diagnosis = diagnosis) 
 
 
 @app.route("/random")
