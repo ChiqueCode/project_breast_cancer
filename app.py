@@ -28,10 +28,10 @@ db_connection = Mysql.connect(
  passwd= pwd
 )
 # creating database_cursor to perform SQL operation
-db_cursor = db_connection.cursor()
+# db_cursor = db_connection.cursor()
 # executing cursor with execute method and pass SQL query
 
-db_cursor.execute("CREATE DATABASE Cancer11_db")
+# db_cursor.execute("CREATE DATABASE Cancer11_db")
 # get list of all databases
 #db_cursor.execute("SHOW DATABASES")
 #print all databases
@@ -44,13 +44,13 @@ db_cursor.execute("CREATE DATABASE Cancer11_db")
 
 #cancerSql = Mysql(app)
 # csv_data = pd.read_csv('datasets\Wisconsindata.csv')
-csv_data = csv.reader('datasets\abc.csv')
-firstline = True
-for row in csv_data:
-    if firstline:
-        #skip first line
-        firstline = False
-    else:
+# csv_data = csv.reader('datasets\abc.csv')
+# firstline = True
+# for row in csv_data:
+#     if firstline:
+#         #skip first line
+#         firstline = False
+#     else:
 
 
         
@@ -67,10 +67,10 @@ for row in csv_data:
     #     'VALUES("%s", "%s", "%s","%s", "%s", "%s","%s", "%s", "%s","%s", "%s", "%s",\
     #             "%s", "%s", "%s","%s", "%s", "%s","%s", "%s", "%s","%s", "%s", "%s",\
                 # "%s", "%s", "%s","%s", "%s", "%s","%s", "%s")', row)
-        db_cursor.execute('INSERT INTO testcsv(id,diagnosis,radius_mean) VALUES("%s", "%s", "%s")', row)
+        # db_cursor.execute('INSERT INTO testcsv(id,diagnosis,radius_mean) VALUES("%s", "%s", "%s")', row)
 
 #close the connection to the database.
-db_cursor.close()
+# db_cursor.close()
 # Clean data and import into database
 # clean_machinelearn()
 
@@ -86,7 +86,7 @@ def index():
 
 @app.route("/calculator")
 def calc():
-    """Link to calculator for determining malignancy"""
+    """Calculator for determining diagnosis"""
     
 
 
@@ -96,17 +96,7 @@ def submit():
 
     # Collect input data when submit button is selected
     if request.method == "POST":
-        radius_mean = request.form["radius_mean"]
-        texture_mean = request.form["texture_mean"]
-        perimeter_mean = request.form["perimeter_mean"]
-        smoothness_mean = request.form["smoothness_mean"]
-        compactness_mean = request.form["compactness_mean"]
-        concavity_mean = request.form["concavity_mean"]
-        concave points_mean = request.form["concave points_mean"]
-        concavity_mean = request.form["concavity_mean"]
-        symmetry_mean = request.form["symmetry_mean"]
-        fractal_dimension_mean = request.form["fractal_dimension_mean"]
-        symmetry_mean = request.form["symmetry_mean"]
+        
         radius_se = request.form["radius_se"]
         texture_se = request.form["texture_se"]
         radius_se = request.form["radius_se"]
