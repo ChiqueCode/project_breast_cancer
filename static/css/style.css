@@ -2,13 +2,34 @@
 /* https://colorhunt.co/palette/148314 */
 
 body {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
-  background-color: pink;
-  color: azure;
-  font-size: 1.1em;
+  color: #0d0d0d;
+  background-color: white;
+  font-family: "Noto Sans SC", sans-serif;
 }
 
-h1 {
+/* Navigation */
+.top-bar {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.top-bar .menu-text {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+}
+
+/* For all headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+}
+
+/* h1 {
   font-family: 'Kalam', cursive;
   text-align: center;
 
@@ -25,7 +46,7 @@ h4 {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: black;
   font-size: 24;
-  text-align: center;
+  text-align: center; */
 }
 
 #header {
