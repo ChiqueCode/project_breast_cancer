@@ -88,9 +88,11 @@ def index():
 
 @app.route("/calculator")
 def calc():
-    """Calculator for determining diagnosis"""
-    
+    """Renders calculator for determining diagnosis"""
 
+    # DO I NEED TO INCLUDE DIAGNOSIS = SOMETHING?
+    return render_template("calculator.html")
+    
 
 @app.route("/submit", methods=["GET", "POST"])
 def submit():
@@ -114,7 +116,13 @@ def submit():
         diagnosis = "Malignant"
 
     # return diagnosis
-    return render_template("index.html", diagnosis = diagnosis) 
+    return render_template("calculator.html", diagnosis = diagnosis) 
+
+
+# NOT SURE IF THIS IS THE RIGHT WAY TO DO THIS OR SHOULD WE DO IN JAVASCRIPT? COMBINATION OF BOTH?
+@app.route("/reset")
+def random():
+    """Clears form data"""
 
 
 @app.route("/random")
