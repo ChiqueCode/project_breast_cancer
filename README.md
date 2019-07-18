@@ -20,7 +20,8 @@ This page also links to an app developed using machine learning algorithms that 
 
 ## Languages and Libraries Used
 
-` Python
+```
+Python
     pandas
     matplotlib
     sklearn
@@ -33,7 +34,8 @@ Javascript
     d3
     INSERT ANYTHING ELSE
 HTML
-CSS `
+CSS
+```
 
 ## Motivation
 
@@ -46,12 +48,9 @@ If, however, medical personnel had access to a tool that would bypass the need f
 * Breast Cancer Wisconsin (Diagnostic) Data Set [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic))
   * Data set with features computed from a digitized image of a fine needle aspirate (FNA) of a breast mass. They describe characteristics of the cell nuclei present in the image.
   * References:
-
-        W.N. Street, W.H. Wolberg and O.L. Mangasarian. Nuclear feature extraction for breast tumor diagnosis. IS&T/SPIE 1993 International Symposium on Electronic Imaging: Science and Technology, volume 1905, pages 861-870, San Jose, CA, 1993.
-
-        O.L. Mangasarian, W.N. Street and W.H. Wolberg. Breast cancer diagnosis and prognosis via linear programming. Operations Research, 43(4), pages 570-577, July-August 1995.
-
-        W.H. Wolberg, W.N. Street, and O.L. Mangasarian. Machine learning techniques to diagnose breast cancer from fine-needle aspirates. Cancer Letters 77 (1994) 163-171.
+    * W.N. Street, W.H. Wolberg and O.L. Mangasarian. Nuclear feature extraction for breast tumor diagnosis. IS&T/SPIE 1993 International Symposium on Electronic Imaging: Science and Technology, volume 1905, pages 861-870, San Jose, CA, 1993.
+    * O.L. Mangasarian, W.N. Street and W.H. Wolberg. Breast cancer diagnosis and prognosis via linear programming. Operations Research, 43(4), pages 570-577, July-August 1995.
+    * W.H. Wolberg, W.N. Street, and O.L. Mangasarian. Machine learning techniques to diagnose breast cancer from fine-needle aspirates. Cancer Letters 77 (1994) 163-171.
 
 INSERT DATA SET INFORMATION PER THE FOLLOWING:
 
@@ -98,5 +97,5 @@ INSERT DATA SET INFORMATION PER THE FOLLOWING:
 
 ### Step 7: Deploy on Heroku
 
-* Created a requirements.txt using and Procfile.
+* Created a `requirements.txt` and a `Procfile`.
 * Deployed app on Heroku.
