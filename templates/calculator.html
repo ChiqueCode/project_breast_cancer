@@ -9,18 +9,24 @@
 <body>
     <form method="POST" action="/submit">
 
+        <!-- I AM VERY UNSURE ABOUT PARAMETER NAMES -->
+
         <label>Radius Mean</label>
-        <input type="number" id="parameter[0]" name="parameter[0]">
+        <input type="number" class="parameter" id="parameter[0]" name="parameter[0]">
     
         <label>Texture Mean</label>
-        <input type="number" id="parameter[1]" name="parameter[1]">
+        <input type="number" class="parameter" id="parameter[1]" name="parameter[1]">
     
         <!-- Create form fields for each value -->
-
-        <input type="submit" value="submit">
+<!-- I AM VERY UNSURE ABOUT THIS CODE -->
+        <button id="submit-btn" method="POST" action="/submit">Submit</button>
     </form>
-
-    <button method="POST" action="/random">Generate Random Sample</button>
+    <button id="random-btn" method="POST" action="/random">Generate Random Sample</button>
+    <!-- is p the right tag? -->
+    <p id="diagnosis"></p>
+    
+    <button id="reset-btn">Reset</button>
+    
     
 </body>
 </html>
