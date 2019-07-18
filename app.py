@@ -116,6 +116,7 @@ def submit():
         diagnosis = "Malignant"
 
     # return diagnosis
+    # HOW DO I INCLUDE DIAGNOSIS IN HTML
     return render_template("calculator.html", diagnosis = diagnosis) 
 
 
