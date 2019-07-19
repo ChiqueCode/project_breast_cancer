@@ -1,25 +1,9 @@
-function createEmptyForm() {
+/* NOTE: This is the way we constructed the dropdown in the bellybutton assignment
+createDropdown() woudl be called when we open the page.
+not sure how to do it so nothing is selected when you first enter the page
+*/
 
-    /**
-    /* Creates empty form
-    */
-
-    // Unsure if this should be a list or a dict; need to make sure we can enter data in here
-    var parameterNames = ["Radius Mean", "Radius SE"];
-
-    // VERY UNSURE ABOUT THIS CODE; CAN WE DO THE MULTIPLE TD'S? CAN WE DO MATH IN THE DATA FIELD
-    parameterNames.forEach((parameter) => {
-        d3.select("#parameterTable")
-            .append("tr")
-            .append("td")
-            .classed("parameter-name", true)
-            .text(`${parameter}: `)
-            .append("td")
-            .classed("parameter-value", true)
-            .html("")
-    });
-}
-
+// REQUIRES FOLLOWING HTML: <select id="selPatient" onchange="selectPatient(this.value)"></select>
 function createDropdown() {
 
     /**
@@ -28,18 +12,27 @@ function createDropdown() {
 
     // Create list of patient ID's
     var patientList = []
-    for (var i = 19000; i <= 19568; i++) {
+    for (var i = 19000; i <= 19010; i++) {
         list.push(i);
     }
 
-    // Create dropdown menu of patientID's and corresponding feature row
+    // Grab a reference to the dropdown select element
+    var selector = d3.select("#selPatient");
+
+    // Create dropdown menu of patientID's to populate the select options
     patientList.forEach((patientID) => {
-        d3.select("#patientDropdown")
-            .append("tr") /* what tag do we append? */
+        selector
+            .append("option")
             .text(patientID)
+            .property("value", patientID)
     });
 }
 
+// REQUIRES THE FOLLOWING HTML: <TAG id=patientID>
+// <TAG id=diagnosis>
+// <TAG id=feature-table>
+// REQUIRES FOLLOWING FLASK ROUTE: 
+// /features --> retunrs dictionary of feature names with feature values
 function selectPatient(patientID) {
 
     /**
@@ -48,70 +41,93 @@ function selectPatient(patientID) {
     /* patient in feature array
     */
 
-    // Get corresponding index in feature array for given patient ID
-    var featureIndex = parseInt(patientID) - 19000
+// USE THIS IF WE DECIDE TO GO WITH SPECIFIC ROW
+    // var featureIndex = parseInt(patientID) - 19000
 
-    // Have a field somewhere other than the dropdown that displays the patientID???
+
     d3.select("#patientID")
-        .data(featureIndex)
+        // USE IF WE GO FOR SPECIFIC ROW
+        // .data(featureIndex)
         .text(patientID);
 
-    // IS THIS NECESSARY??? Clear fields in parameter table
-    parameterValues = d3.selectAll("#parameter-value").html("");
+    // Clear values for existing feature table and diagnosis
+    d3.select("#feature-table").html("");
+    d3.select("#diagnosis").html("");
 
     // Construct url for path to features for given feature index
-    var url = `/features/${featureIndex}`;
+    // IF WE WANT TO CHANGE TO SELECT SPECIFIC ROW, USE THE COMMENTED OUT URL
+    // var url = `/features/${featureIndex}`;
+    var url = "/features"
 
-    // Fetch metadata for the sample
+    // Fetch dictionary of the name of the features and corresponding values
     d3.json(url).then(function (patientFeatures) {
 
-        // VERY UNSURE ABOUT THIS CODE
-        parameterValues.data(patientFeatures)
-            .enter()
-            .text("patientFeature");
+        // For each feature, enter the feature name and the feature value into a row
+        Object.entries(patientFeatures).forEach(([key, value]) => {
+        d3.select("#feature-table")
+          .append("tr")
+          .text(`${key}: ${value}`);
+      });
     });
 }
+// REQUIRES THE FOLLOWING HTML: <TAG id=diagnosis>
+// REQUIRES FOLLOWING FLASK ROUTE: 
+// /analyze --> returns "Malignant" or "Benign"
 
-// GRETEL LEFT OFF HERE WITH FRIDAY UPDATES 9 AM
-function random() {
+// If we decide to go with specific row, we'd pass in the index here
+function analyze() {
 
     /**
-    /* Populates form with features from random sample
+    /* Enters diagnosis into form
     */
 
-    // Clear all input and output data
-
-
-    // Fetch list of random data and populate associated fields
-    d3.json("/random").then(function (sampleData) {
-        for (var i = 0; i < sampleData.length; i++) {
-            d3.select(`parameter${i}`).html(sampleData[0]);
-        };
+    d3.json("/analyze").then(function (diagnosis) {
+        d3.select("#diagnosis").html(diagnosis)
     });
 }
 
+// OPTION OF CREATING A RESET BUTTON?
+// I don't think we need any of the following
+// function random() {
 
-function reset() {
+//     /**
+//     /* Populates form with features from random sample
+//     */
 
-    /**
-    /* Clears parameters and diagnosis
-    */
+//     // Clear all input and output data
 
-    //   TODO: ADD RESET BUTTON TO CALCULATOR.HTML
-    var reset = d3.select("#reset-btn");
 
-    reset.on("click", function () {
-        // Prevent the page from refreshing
-        d3.event.preventDefault();
+//     // Fetch list of random data and populate associated fields
+//     d3.json("/random").then(function (sampleData) {
+//         for (var i = 0; i < sampleData.length; i++) {
+//             d3.select(`parameter${i}`).html(sampleData[0]);
+//         };
+//     });
+// }
 
-        // TODO: ADD CLASS TO PARAMETERS
-        // QUESTION: DO I NEED A SELECT ALL?
-        // Clear previous input
-        d3.selectAll(".parameter")
-            .html("");
 
-        d3.select("#diagnosis")
-            .html("");
-    });
-}
+
+// function reset() {
+
+//     /**
+//     /* Clears parameters and diagnosis
+//     */
+
+//     //   TODO: ADD RESET BUTTON TO CALCULATOR.HTML
+//     var reset = d3.select("#reset-btn");
+
+//     reset.on("click", function () {
+//         // Prevent the page from refreshing
+//         d3.event.preventDefault();
+
+//         // TODO: ADD CLASS TO PARAMETERS
+//         // QUESTION: DO I NEED A SELECT ALL?
+//         // Clear previous input
+//         d3.selectAll(".parameter")
+//             .html("");
+
+//         d3.select("#diagnosis")
+//             .html("");
+//     });
+// }
 
