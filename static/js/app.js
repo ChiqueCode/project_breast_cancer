@@ -38,3 +38,7 @@ function random() {
         };
   });
 }
+
+// create dropdown menu
+
+// create select patient function that calls flask route

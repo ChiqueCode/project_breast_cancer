@@ -16,6 +16,8 @@ from sklearn.datasets import load_breast_cancer
 #Set up Flask
 app = Flask(__name__)
 
+feature_list = [radius_mean: 'Radius Mean', radius_se = 'Radius Standard Error'...]
+
 # For creating create db
 # Below line  is hide your warning 
 # cursor.execute("SET sql_notes = 0; ")
@@ -78,20 +80,22 @@ db_connection = Mysql.connect(
 
 #Create routes 
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index():
     """Render the homepage."""
 
 
-    return render_template("index.html")
+    # DO WE PUT THE 
+    return render_template("index.html", diagnosis ="")
 
 
-@app.route("/calculator")
+@app.route("/calculator", methods=["GET", "POST"])
 def calc():
     """Renders calculator for determining diagnosis"""
 
+
     # DO I NEED TO INCLUDE DIAGNOSIS = SOMETHING?
-    return render_template("calculator.html")
+    return render_template("calculator.html", feature_dict=feature_dict)
     
 
 @app.route("/submit", methods=["GET", "POST"])
@@ -103,9 +107,11 @@ def submit():
     if request.method == "POST":
         
         # Retrieve parameters and add to sample data
-        sample = []
-        for i in range(30):
-           sample.append(request.form[f"parameter[{i}]"])
+        predict_features = []
+
+        for feature in feature_dict.keys:
+            predict_feature.append(request.form[feature])
+
     
     # Load model and predict diagnosis
     model = load('cancer_model.joblib')
@@ -115,32 +121,46 @@ def submit():
     else:
         diagnosis = "Malignant"
 
-    # return diagnosis
-    # HOW DO I INCLUDE DIAGNOSIS IN HTML
     return render_template("calculator.html", diagnosis = diagnosis) 
 
 
 # NOT SURE IF THIS IS THE RIGHT WAY TO DO THIS OR SHOULD WE DO IN JAVASCRIPT? COMBINATION OF BOTH?
-@app.route("/reset")
-def random():
+@app.route("/reset", methods=["GET", "POST"])
+def reset():
     """Clears form data"""
 
 
-@app.route("/random")
-def random():
+# todo: returns row for selected patient
+@app.route("/select/<patientid>", methods=["GET", "POST"])
+def select(patientid):
     """Returns random sample as list"""
 
 
-# Load dataset from sklearn and set X to Feature array
-cancer = load_breast_cancer()
-X = cancer.data
+    # Load dataset from sklearn and set X to feature array
+    cancer = load_breast_cancer()
+    X = cancer.data
 
-# Select random feature
-n = random.randint(0, 568)
-sample = X[n]
+    # CONSIDER CREATING SOME MORE BETTER PATIENT ID AND MATHING ON IT
+    # Get feature row for selected patient
+    selected_features = X[patientid]
 
-# Is this a render template thing?    
-return sample
+    return render_template("calculator.html", selected_features = selected_features) 
+
+# this is all messed up. ignore it
+@app.route("/random", methods=["GET", "POST"])
+def random():
+    """Returns random sample as list"""
+
+    # Load dataset from sklearn and set X to Feature array
+    cancer = load_breast_cancer()
+    X = cancer.data
+
+    # Select random feature
+    n = random.randint(0, 568)
+    sample = X[n]
+
+    # Is this a render template thing?    
+    render_template("calculator.html", feature_name = sample)
 
 
 if __name__ == "__main__":
