@@ -9,10 +9,14 @@
 <body>
     <form method="POST" action="/submit">
 
-        <!-- I AM VERY UNSURE ABOUT PARAMETER NAMES -->
+        <!-- table? -->
 
-        <label>Radius Mean</label>
-        <input type="number" class="parameter" id="parameter[0]" name="parameter[0]">
+        { % for key, value in feature_dict.items() %}
+        <label>{{key}}: </label>
+        <!-- { % for feature_value in selected_features %} -->
+        <input type="number" class="parameter" name="{{ value }}" value="{{selected_features[key]}}">
+        <!-- { % endfor % } -->
+        { % endfor % }
     
         <label>Texture Mean</label>
         <input type="number" class="parameter" id="parameter[1]" name="parameter[1]">
@@ -23,7 +27,7 @@
     </form>
     <button id="random-btn" method="POST" action="/random">Generate Random Sample</button>
     <!-- is p the right tag? -->
-    <p id="diagnosis"></p>
+    <p id="diagnosis">{{ diagnosis }}</p>
     
     <button id="reset-btn">Reset</button>
     
