@@ -7,20 +7,20 @@ function createDropdown() {
     // Create list of patient ID's
     var patientList = []
     for (var i = 19000; i <= 19010; i++) {
-        list.push(i);
+        patientList.push(i);
     }
 
-    // Grab a reference to the dropdown select element
-    var selector = d3.select("#selPatient")
+    // Add first dropdown item
+    d3.select("#selPatient")
         .append("option")
         .text("Select Patient ID");
 
     // Create dropdown menu of patientID's to populate the select options
     patientList.forEach((patientID) => {
-        selector
+        d3.select("#selPatient")
             .append("option")
             .text(patientID)
-            .property("value", patientID)
+            .property("value", patientID);
     });
 }
 
