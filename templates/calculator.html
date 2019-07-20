@@ -1,36 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Biopsy </title>
+    <title>BBB</title>
 </head>
+
 <body>
-    <form method="POST" action="/submit">
 
-        <!-- table? -->
+    <select id="selPatient" onchange="selectPatient(this.value)"></select>
+    <h2 id="patientID"></h2>
+    <table></table>
+    <button id="analyze"></button>
+    <h2 id=diagnosis></h2>
 
-        { % for key, value in feature_dict.items() %}
-        <label>{{key}}: </label>
-        <!-- { % for feature_value in selected_features %} -->
-        <input type="number" class="parameter" name="{{ value }}" value="{{selected_features[key]}}">
-        <!-- { % endfor % } -->
-        { % endfor % }
-    
-        <label>Texture Mean</label>
-        <input type="number" class="parameter" id="parameter[1]" name="parameter[1]">
-    
-        <!-- Create form fields for each value -->
-<!-- I AM VERY UNSURE ABOUT THIS CODE -->
-        <button id="submit-btn" method="POST" action="/submit">Submit</button>
-    </form>
-    <button id="random-btn" method="POST" action="/random">Generate Random Sample</button>
-    <!-- is p the right tag? -->
-    <p id="diagnosis">{{ diagnosis }}</p>
-    
-    <button id="reset-btn">Reset</button>
-    
-    
+    <script src="../static/js/logic.js"></script>
 </body>
+
+
 </html>
+

@@ -97,34 +97,37 @@ def calc():
     return render_template("calculator.html")
 
 
-@app.route("/features")
-def features():
-    """Returns list of features"""
+@app.route("/features/<patientID>")
+def features(patient_id):
+    """Returns list of features for given patient ID"""
 
 
     # Create list of feature names
-    feature_names = ["Radius Mean", "Radius Standard Error"]
-
+    feature_names = ["Radius (worst)", "Texture (worst)", "Perimeter (worst)", "Area (worst)", "Smoothness (worst)", "Compactness (worst)", "Concavity (worst)", "Concave points (worst)", "Symmetry (worst)", "Fractal dimension (worst)"]
+    
+    row = int(patient_id) - 19000
+   
     # Load dataset from sklearn and set X to feature array
     X = load_breast_cancer().data
+    feature_values = X[row]
 
-    # Select random feature
-    n = random.randint(0, 568)
-    feature_values = X[n]
+    # Delete undisplayed features
+    del feature_values[0:19]
 
     # Create dictionary of keys feature names and values
     features_dict = dict(zip(feature_names, feature_values))
 
     return jsonify(features_dict)
 
-# IF WE WANT TO MATCH THE ANALYSIS WITH THE FEATURES WE POPULATED, WE NEED TO PASS IN A PARAMETER;
+
 @app.route("/analyze/<patient_id>")
 def analyze():
     """Submit data to calculator"""
 
 
     # Translate patient ID to row
-    row = patient_id - 19000
+    row = int(patient_id) - 19000
+
     # Load model and predict diagnosis
     model = load('cancer_model.joblib')
     prediction = model.predict(row)

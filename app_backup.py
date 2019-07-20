@@ -1,7 +1,6 @@
 # Import dependencies
 import csv
 import os
-import pandas as pd
 import random
 from flask import (
     Flask,
@@ -11,70 +10,8 @@ from flask import (
 from joblib import load
 from sklearn.datasets import load_breast_cancer
 
-# import MySQLdb
-
 #Set up Flask
 app = Flask(__name__)
-
-# For creating create db
-# Below line  is hide your warning 
-# cursor.execute("SET sql_notes = 0; ")
-# create db here....
-# cursor.execute("create database IF NOT EXISTS Cancer_db")
-
-import mysql.connector as Mysql
-from config import pwd
-db_connection = Mysql.connect(
- host= "localhost",
- user= "root",
- passwd= pwd
-)
-# creating database_cursor to perform SQL operation
-# db_cursor = db_connection.cursor()
-# executing cursor with execute method and pass SQL query
-
-# db_cursor.execute("CREATE DATABASE Cancer11_db")
-# get list of all databases
-#db_cursor.execute("SHOW DATABASES")
-#print all databases
-# for db in db_cursor:
-#     print(db)
-
-
-
-# app.config['Mysql'] = 'Cancer4_db'
-
-#cancerSql = Mysql(app)
-# csv_data = pd.read_csv('datasets\Wisconsindata.csv')
-# csv_data = csv.reader('datasets\abc.csv')
-# firstline = True
-# for row in csv_data:
-#     if firstline:
-#         #skip first line
-#         firstline = False
-#     else:
-
-
-        
-
-    # db_cursor.execute('INSERT INTO testcsv(id,diagnosis,radius_mean,\
-    #     texture_mean,perimeter_mean,area_mean,smoothness_mean,\
-    #     compactness_mean,concavity_mean,concave_points_mean,symmetry_mean,\
-    #     fractal_dimension_mean,radius_se,texture_se,perimeter_se,area_se,\
-    #     smoothness_se,compactness_se,concavity_se,concave_points_se,\
-    #     symmetry_se,fractal_dimension_se,radius_worst,texture_worst,perimeter_worst,\
-    #     area_worst,smoothness_worst,compactness_worst,concavity_worst,\
-    #     concave_points_worst,symmetry_worst,fractal_dimension_worst\
-    #     )' \
-    #     'VALUES("%s", "%s", "%s","%s", "%s", "%s","%s", "%s", "%s","%s", "%s", "%s",\
-    #             "%s", "%s", "%s","%s", "%s", "%s","%s", "%s", "%s","%s", "%s", "%s",\
-                # "%s", "%s", "%s","%s", "%s", "%s","%s", "%s")', row)
-        # db_cursor.execute('INSERT INTO testcsv(id,diagnosis,radius_mean) VALUES("%s", "%s", "%s")', row)
-
-#close the connection to the database.
-# db_cursor.close()
-# Clean data and import into database
-# clean_machinelearn()
 
 #Create routes 
 
@@ -88,70 +25,53 @@ def index():
 
 @app.route("/calculator")
 def calc():
-    """Calculator for determining diagnosis"""
+    """Renders calculator page"""
+
+
+    return render_template("calculator.html")
+
+
+@app.route("/features/<patientID>")
+def features(patient_id):
+    """Returns list of features"""
+
+
+    # Create list of feature names
+    feature_names = ["Radius (worst)", "Texture (worst)", "Perimeter (worst)", "Area (worst)", "Smoothness (worst)", "Compactness (worst)", "Concavity (worst)", "Concave points (worst)", "Symmetry (worst)", "Fractal dimension (worst)"]
     
+    row = patient_id - 19000
+   
+    # Load dataset from sklearn and set X to feature array
+    # THERE'S SOMETHING WRONG HERE
+    X = load_breast_cancer().data
+    feature_values = X[row]
+
+    # Delete undisplayed features
+    del feature_values[0:19]
+
+    # Create dictionary of keys feature names and values
+    features_dict = dict(zip(feature_names, feature_values))
+
+    return jsonify(features_dict)
 
 
-@app.route("/submit", methods=["GET", "POST"])
-def submit():
+@app.route("/analyze/<patient_id>")
+def analyze():
     """Submit data to calculator"""
 
 
-    # Collect input data when submit button is selected
-    if request.method == "POST":
-        
-        # Retrieve values and add to sample data
-        # MIGHT BE WORTHWHILE TO LOOP THIS AND MAKE THE HTML A LIST, LIKE parameter[i]
-        sample = []
-        sample.append(request.form["radius_se"])
-        sample.append(request.form["texture_se"])
-        sample.append(request.form["radius_se"])
-        sample.append(request.form["perimeter_se"])
-        sample.append(request.form["area_se"])
-        sample.append(request.form["smoothness_se"])
-        sample.append(request.form["compactness_se"])
-        sample.append(request.form["concavity_se"])
-        sample.append(request.form["concave points_se"])
-        sample.append(request.form["concavity_se"])
-        sample.append(request.form["symmetry_se"])
-        sample.append(request.form["fractal_dimension_se"])
-        sample.append(request.form["symmetry_se"])
-        sample.append(request.form["radius_worst"])
-        sample.append(request.form["texture_worst"])
-        sample.append(request.form["perimeter_worst"])
-        sample.append(request.form["area_worst"])
-        sample.append(request.form["smoothness_worst"])
-        sample.append(request.form["compactness_worst"])
-        sample.append(request.form["concavity_worst"])
-        sample.append(request.form["concave_points_worst"])
-        sample.append(request.form["symmetry_worst"])
-        sample.append(request.form["fractal_dimension_worst"])
-    
+    # Translate patient ID to row
+    row = patient_id - 19000
+
     # Load model and predict diagnosis
     model = load('cancer_model.joblib')
-    prediction = model.predict(sample)
+    prediction = model.predict(row)
     if prediction == 0:
         diagnosis = "Benign"
-    else
+    else:
         diagnosis = "Malignant"
 
-    return diagnosis
-
-
-@app.route("/random")
-def random():
-    """Returns random sample as list"""
-
-
-# Load dataset from sklearn and set X to Feature array
-cancer = load_breast_cancer()
-X = cancer.data
-
-# Select random feature
-n = random.randint(0, 568)
-sample = X[n]
-    
-return sample
+    return (diagnosis) 
 
 
 if __name__ == "__main__":
