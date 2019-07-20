@@ -1,7 +1,6 @@
 # Import dependencies
 import csv
 import os
-import pandas as pd
 import random
 from flask import (
     Flask,
@@ -16,19 +15,20 @@ from sklearn.datasets import load_breast_cancer
 #Set up Flask
 app = Flask(__name__)
 
+
 # For creating create db
 # Below line  is hide your warning 
 # cursor.execute("SET sql_notes = 0; ")
 # create db here....
 # cursor.execute("create database IF NOT EXISTS Cancer_db")
 
-import mysql.connector as Mysql
-from config import pwd
-db_connection = Mysql.connect(
- host= "localhost",
- user= "root",
- passwd= pwd
-)
+# import mysql.connector as Mysql
+# from config import pwd
+# db_connection = Mysql.connect(
+#  host= "localhost",
+#  user= "root",
+#  passwd= pwd
+# )
 # creating database_cursor to perform SQL operation
 # db_cursor = db_connection.cursor()
 # executing cursor with execute method and pass SQL query
@@ -76,6 +76,7 @@ db_connection = Mysql.connect(
 # Clean data and import into database
 # clean_machinelearn()
 
+
 #Create routes 
 
 @app.route("/")
@@ -88,71 +89,117 @@ def index():
 
 @app.route("/calculator")
 def calc():
-    """Calculator for determining diagnosis"""
+    """Renders calculator page"""
+
+
+    return render_template("calculator.html")
+
+
+@app.route("/features/<patientID>")
+def features(patient_id):
+    """Returns list of features"""
+
+
+    # Create list of feature names
+    feature_names = ["Radius (worst)", "Texture (worst)", "Perimeter (worst)", "Area (worst)", "Smoothness (worst)", "Compactness (worst)", "Concavity (worst)", "Concave points (worst)", "Symmetry (worst)", "Fractal dimension (worst)"]
     
+    row = patient_id - 19000
+   
+    # Load dataset from sklearn and set X to feature array
+    # THERE'S SOMETHING WRONG HERE
+    X = load_breast_cancer().data
+    feature_values = X[row]
+
+    # Delete undisplayed features
+    del feature_values[0:19]
+
+    # Create dictionary of keys feature names and values
+    features_dict = dict(zip(feature_names, feature_values))
+
+    return jsonify(features_dict)
 
 
-@app.route("/submit", methods=["GET", "POST"])
-def submit():
+@app.route("/analyze/<patient_id>")
+def analyze():
     """Submit data to calculator"""
 
 
-    # Collect input data when submit button is selected
-    if request.method == "POST":
-        
-        # Retrieve values and add to sample data
-        # MIGHT BE WORTHWHILE TO LOOP THIS AND MAKE THE HTML A LIST, LIKE parameter[i]
-        sample = []
-        sample.append(request.form["radius_se"])
-        sample.append(request.form["texture_se"])
-        sample.append(request.form["radius_se"])
-        sample.append(request.form["perimeter_se"])
-        sample.append(request.form["area_se"])
-        sample.append(request.form["smoothness_se"])
-        sample.append(request.form["compactness_se"])
-        sample.append(request.form["concavity_se"])
-        sample.append(request.form["concave points_se"])
-        sample.append(request.form["concavity_se"])
-        sample.append(request.form["symmetry_se"])
-        sample.append(request.form["fractal_dimension_se"])
-        sample.append(request.form["symmetry_se"])
-        sample.append(request.form["radius_worst"])
-        sample.append(request.form["texture_worst"])
-        sample.append(request.form["perimeter_worst"])
-        sample.append(request.form["area_worst"])
-        sample.append(request.form["smoothness_worst"])
-        sample.append(request.form["compactness_worst"])
-        sample.append(request.form["concavity_worst"])
-        sample.append(request.form["concave_points_worst"])
-        sample.append(request.form["symmetry_worst"])
-        sample.append(request.form["fractal_dimension_worst"])
-    
+    # Translate patient ID to row
+    row = patient_id - 19000
+
     # Load model and predict diagnosis
     model = load('cancer_model.joblib')
-    prediction = model.predict(sample)
+    prediction = model.predict(row)
     if prediction == 0:
         diagnosis = "Benign"
-    else
+    else:
         diagnosis = "Malignant"
 
-    return diagnosis
+    return (diagnosis) 
+
+# @app.route("/submit", methods=["GET", "POST"])
+# def submit():
+#     """Submit data to calculator"""
 
 
-@app.route("/random")
-def random():
-    """Returns random sample as list"""
+#     # Collect input data when submit button is selected
+#     if request.method == "POST":
+        
+#         # Retrieve parameters and add to sample data
+#         predict_features = []
 
+#         for feature in feature_dict.keys:
+#             predict_feature.append(request.form[feature])
 
-# Load dataset from sklearn and set X to Feature array
-cancer = load_breast_cancer()
-X = cancer.data
-
-# Select random feature
-n = random.randint(0, 568)
-sample = X[n]
     
-return sample
+#     # Load model and predict diagnosis
+#     model = load('cancer_model.joblib')
+#     prediction = model.predict(sample)
+#     if prediction == 0:
+#         diagnosis = "Benign"
+#     else:
+#         diagnosis = "Malignant"
 
+#     return render_template("calculator.html", diagnosis = diagnosis) 
+
+
+# # NOT SURE IF THIS IS THE RIGHT WAY TO DO THIS OR SHOULD WE DO IN JAVASCRIPT? COMBINATION OF BOTH?
+# @app.route("/reset", methods=["GET", "POST"])
+# def reset():
+#     """Clears form data"""
+
+
+# # todo: returns row for selected patient
+# @app.route("/select/<patientid>", methods=["GET", "POST"])
+# def select(patientid):
+#     """Returns random sample as list"""
+
+
+#     # Load dataset from sklearn and set X to feature array
+#     cancer = load_breast_cancer()
+#     X = cancer.data
+
+#     # CONSIDER CREATING SOME MORE BETTER PATIENT ID AND MATHING ON IT
+#     # Get feature row for selected patient
+#     selected_features = X[patientid]
+
+#     return render_template("calculator.html", features_dict = features_dict, selected_features = selected_features) 
+
+# # this is all messed up. ignore it
+# @app.route("/random", methods=["GET", "POST"])
+# def random():
+#     """Returns random sample as list"""
+
+#     # Load dataset from sklearn and set X to Feature array
+#     cancer = load_breast_cancer()
+#     X = cancer.data
+
+#     # Select random feature
+#     n = random.randint(0, 568)
+#     sample = X[n]
+
+#     # Is this a render template thing?    
+#     render_template("calculator.html", feature_name = sample)
 
 if __name__ == "__main__":
     app.run(debug=False, port=8000, host="localhost", threaded=True)

@@ -1,25 +1,3 @@
-function createEmptyForm() {
-
-    /**
-    /* Creates empty form
-    */
-
-    // Unsure if this should be a list or a dict; need to make sure we can enter data in here
-    var parameterNames = ["Radius Mean", "Radius SE"];
-
-    // VERY UNSURE ABOUT THIS CODE; CAN WE DO THE MULTIPLE TD'S? CAN WE DO MATH IN THE DATA FIELD
-    parameterNames.forEach((parameter) => {
-        d3.select("#parameterTable")
-            .append("tr")
-            .append("td")
-            .classed("parameter-name", true)
-            .text(`${parameter}: `)
-            .append("td")
-            .classed("parameter-value", true)
-            .html("")
-    });
-}
-
 function createDropdown() {
 
     /**
@@ -28,15 +6,21 @@ function createDropdown() {
 
     // Create list of patient ID's
     var patientList = []
-    for (var i = 19000; i <= 19568; i++) {
-        list.push(i);
+    for (var i = 19000; i <= 19010; i++) {
+        patientList.push(i);
     }
 
-    // Create dropdown menu of patientID's and corresponding feature row
+    // Add first dropdown item
+    d3.select("#selPatient")
+        .append("option")
+        .text("Select Patient ID");
+
+    // Create dropdown menu of patientID's to populate the select options
     patientList.forEach((patientID) => {
-        d3.select("#patientDropdown")
-            .append("tr") /* what tag do we append? */
+        d3.select("#selPatient")
+            .append("option")
             .text(patientID)
+            .property("value", patientID);
     });
 }
 
@@ -44,74 +28,94 @@ function selectPatient(patientID) {
 
     /**
     /* Populates form with features from selected patient
-    /* @param {string}    patientID    Index of features for selected 
+    /* @param {string}    patientID    ID of selected patient 
     /* patient in feature array
     */
 
-    // Get corresponding index in feature array for given patient ID
-    var featureIndex = parseInt(patientID) - 19000
-
-    // Have a field somewhere other than the dropdown that displays the patientID???
+    // Populates patient ID field
     d3.select("#patientID")
-        .data(featureIndex)
         .text(patientID);
 
-    // IS THIS NECESSARY??? Clear fields in parameter table
-    parameterValues = d3.selectAll("#parameter-value").html("");
+    // Connects analyze function to button and passes in patientID
+    d3.select("#analyze")
+        .on("click", analyze(patientID));
 
-    // Construct url for path to features for given feature index
-    var url = `/features/${featureIndex}`;
+    // Clear values for existing feature table and diagnosis
+    d3.select("table").html("");
+    d3.select("#diagnosis").html("");
 
-    // Fetch metadata for the sample
+    var url = `/features/${patientID}`;
+
+    // Fetch dictionary of the name of the features and corresponding values
     d3.json(url).then(function (patientFeatures) {
 
-        // VERY UNSURE ABOUT THIS CODE
-        parameterValues.data(patientFeatures)
-            .enter()
-            .text("patientFeature");
+        // For each feature, enter the feature name and the feature value into a row
+        Object.entries(patientFeatures).forEach(([key, value]) => {
+            var tableRow = d3.select("table").append("tr");
+            tableRow.append("td").text(key);
+            tableRow.append("td").text(value);
+        });
     });
 }
 
-// GRETEL LEFT OFF HERE WITH FRIDAY UPDATES 9 AM
-function random() {
+function analyze(patientID) {
 
     /**
-    /* Populates form with features from random sample
+    /* Calculates diagnosis of given patient and populates corresponding field
+    /* @param {string}    patientID    ID of selected patient 
     */
 
-    // Clear all input and output data
+    var url = `/analyze/${patientID}`;
 
-
-    // Fetch list of random data and populate associated fields
-    d3.json("/random").then(function (sampleData) {
-        for (var i = 0; i < sampleData.length; i++) {
-            d3.select(`parameter${i}`).html(sampleData[0]);
-        };
+    d3.json(url).then(function (diagnosis) {
+        d3.select("#diagnosis").html(diagnosis)
     });
 }
 
+createDropdown();
 
-function reset() {
+// OPTION OF CREATING A RESET BUTTON?
+// I don't think we need any of the following
+// function random() {
 
-    /**
-    /* Clears parameters and diagnosis
-    */
+//     /**
+//     /* Populates form with features from random sample
+//     */
 
-    //   TODO: ADD RESET BUTTON TO CALCULATOR.HTML
-    var reset = d3.select("#reset-btn");
+//     // Clear all input and output data
 
-    reset.on("click", function () {
-        // Prevent the page from refreshing
-        d3.event.preventDefault();
 
-        // TODO: ADD CLASS TO PARAMETERS
-        // QUESTION: DO I NEED A SELECT ALL?
-        // Clear previous input
-        d3.selectAll(".parameter")
-            .html("");
+//     // Fetch list of random data and populate associated fields
+//     d3.json("/random").then(function (sampleData) {
+//         for (var i = 0; i < sampleData.length; i++) {
+//             d3.select(`parameter${i}`).html(sampleData[0]);
+//         };
+//     });
+// }
 
-        d3.select("#diagnosis")
-            .html("");
-    });
-}
+
+
+// function reset() {
+
+//     /**
+//     /* Clears parameters and diagnosis
+//     */
+
+//     //   TODO: ADD RESET BUTTON TO CALCULATOR.HTML
+//     var reset = d3.select("#reset-btn");
+
+//     reset.on("click", function () {
+//         // Prevent the page from refreshing
+//         d3.event.preventDefault();
+
+//         // TODO: ADD CLASS TO PARAMETERS
+//         // QUESTION: DO I NEED A SELECT ALL?
+//         // Clear previous input
+//         d3.selectAll(".parameter")
+//             .html("");
+
+//         d3.select("#diagnosis")
+//             .html("");
+//     });
+// }
 
