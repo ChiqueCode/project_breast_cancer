@@ -83,7 +83,7 @@ def analyze(patientID):
     else:
         diagnosis = "Malignant"
 
-    return (diagnosis)
+    return jsonify(diagnosis)
 
 
 if __name__ == "__main__":
