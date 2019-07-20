@@ -1,9 +1,3 @@
-/* NOTE: This is the way we constructed the dropdown in the bellybutton assignment
-createDropdown() woudl be called when we open the page.
-not sure how to do it so nothing is selected when you first enter the page
-*/
-
-// REQUIRES FOLLOWING HTML: <select id="selPatient" onchange="selectPatient(this.value)"></select>
 function createDropdown() {
 
     /**
@@ -17,7 +11,9 @@ function createDropdown() {
     }
 
     // Grab a reference to the dropdown select element
-    var selector = d3.select("#selPatient");
+    var selector = d3.select("#selPatient")
+        .append("option")
+        .text("Select Patient ID");
 
     // Create dropdown menu of patientID's to populate the select options
     patientList.forEach((patientID) => {
@@ -28,60 +24,54 @@ function createDropdown() {
     });
 }
 
-// REQUIRES THE FOLLOWING HTML: <TAG id=patientID>
-// <TAG id=diagnosis> <-- I think we may need to attach the patient id to this tag?!
-// <TAG id=feature-table>
-// REQUIRES FOLLOWING FLASK ROUTE: 
-// /features --> returns dictionary of feature names with feature values
 function selectPatient(patientID) {
 
     /**
     /* Populates form with features from selected patient
-    /* @param {string}    patientID    Index of features for selected 
+    /* @param {string}    patientID    ID of selected patient 
     /* patient in feature array
     */
 
-// IS THIS CORRECT?
+    // Populates patient ID field
     d3.select("#patientID")
-        .text(patientID)
-        .property("value", patientID)
+        .text(patientID);
+
+    // Connects analyze function to button and passes in patientID
+    d3.select("#analyze")
+        .on("click", analyze(patientID));
 
     // Clear values for existing feature table and diagnosis
-    d3.select("#feature-table").html("");
+    d3.select("table").html("");
     d3.select("#diagnosis").html("");
 
-    // Construct url for path to features for given feature index
-    // IF WE WANT TO CHANGE TO SELECT SPECIFIC ROW, USE THE COMMENTED OUT URL
-    // var url = `/features/${featureIndex}`;
-    var url = "/features"
-
     // Fetch dictionary of the name of the features and corresponding values
-    d3.json(url).then(function (patientFeatures) {
+    d3.json(`/features/${patientID}`).then(function (patientFeatures) {
 
         // For each feature, enter the feature name and the feature value into a row
         Object.entries(patientFeatures).forEach(([key, value]) => {
-        d3.select("#feature-table")
-          .append("tr")
-          .text(`${key}: ${value}`);
-      });
+            d3.select("table")
+                .append("tr")
+                .append("td")
+                .text(key)
+                .append("td")
+                .text(value)
+        });
     });
 }
-// REQUIRES THE FOLLOWING HTML: <TAG id=diagnosis>
-// A BUTTON THAT WHEN CLICKED, ACTIVATES THE ANALYZE FUNCTION W/ PARAMETER PATIENTID
-// REQUIRES FOLLOWING FLASK ROUTE: 
-// /analyze --> returns "Malignant" or "Benign"
 
-// UNSURE ABOUT THE PARAMETERS HERE
 function analyze(patientID) {
 
     /**
-    /* Enters diagnosis into form
+    /* Calculates diagnosis of given patient and populates corresponding field
+    /* @param {string}    patientID    ID of selected patient 
     */
 
     d3.json(`/analyze/${patientID}`).then(function (diagnosis) {
         d3.select("#diagnosis").html(diagnosis)
     });
 }
+
+createDropdown();
 
 // OPTION OF CREATING A RESET BUTTON?
 // I don't think we need any of the following
