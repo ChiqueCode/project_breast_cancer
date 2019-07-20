@@ -16,21 +16,35 @@ from sklearn.datasets import load_breast_cancer
 app = Flask(__name__)
 
 
+# home route
 @app.route("/")
 def index():
-    """Render the homepage."""
-
-
     return render_template("index.html")
 
 
+# vizualisations/tableau route
+@app.route("/viz")
+def viz():
+    return render_template("viz.html")
+
+
+# case studies route
+@app.route("/cases")
+def cases():
+    return render_template("cases.html")
+
+
+# demo/calculator route
 @app.route("/calculator")
 def calc():
-    """Renders calculator page"""
-
-
     return render_template("calculator.html")
 
+
+# call to action/request assesment route 
+@app.route("/cta")
+def cta():
+    return render_template("cta.html")
+   
 
 @app.route("/features/<patientID>")
 def features(patientID):
