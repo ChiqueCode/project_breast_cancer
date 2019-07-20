@@ -44,8 +44,10 @@ function selectPatient(patientID) {
     d3.select("table").html("");
     d3.select("#diagnosis").html("");
 
+    var url = `/features/${patientID}`;
+
     // Fetch dictionary of the name of the features and corresponding values
-    d3.json(`/features/${patientID}`).then(function (patientFeatures) {
+    d3.json(url).then(function (patientFeatures) {
 
         // For each feature, enter the feature name and the feature value into a row
         Object.entries(patientFeatures).forEach(([key, value]) => {
@@ -66,7 +68,9 @@ function analyze(patientID) {
     /* @param {string}    patientID    ID of selected patient 
     */
 
-    d3.json(`/analyze/${patientID}`).then(function (diagnosis) {
+    var url = `/analyze/${patientID}`;
+
+    d3.json(url).then(function (diagnosis) {
         d3.select("#diagnosis").html(diagnosis)
     });
 }
