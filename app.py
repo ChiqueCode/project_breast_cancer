@@ -16,7 +16,7 @@ from sklearn.datasets import load_breast_cancer
 #Set up Flask
 app = Flask(__name__)
 
-feature_list = [radius_mean: 'Radius Mean', radius_se = 'Radius Standard Error'...]
+
 
 # For creating create db
 # Below line  is hide your warning 
@@ -24,13 +24,13 @@ feature_list = [radius_mean: 'Radius Mean', radius_se = 'Radius Standard Error'.
 # create db here....
 # cursor.execute("create database IF NOT EXISTS Cancer_db")
 
-import mysql.connector as Mysql
-from config import pwd
-db_connection = Mysql.connect(
- host= "localhost",
- user= "root",
- passwd= pwd
-)
+# import mysql.connector as Mysql
+# from config import pwd
+# db_connection = Mysql.connect(
+#  host= "localhost",
+#  user= "root",
+#  passwd= pwd
+# )
 # creating database_cursor to perform SQL operation
 # db_cursor = db_connection.cursor()
 # executing cursor with execute method and pass SQL query
@@ -80,87 +80,126 @@ db_connection = Mysql.connect(
 
 #Create routes 
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/")
 def index():
     """Render the homepage."""
 
 
     # DO WE PUT THE 
-    return render_template("index.html", diagnosis ="")
+    return render_template("index.html")
 
 
-@app.route("/calculator", methods=["GET", "POST"])
+@app.route("/calculator")
 def calc():
-    """Renders calculator for determining diagnosis"""
+    """Renders calculator page"""
 
 
-    # DO I NEED TO INCLUDE DIAGNOSIS = SOMETHING?
-    return render_template("calculator.html", feature_dict=feature_dict)
-    
+    return render_template("calculator.html")
 
-@app.route("/submit", methods=["GET", "POST"])
-def submit():
+
+@app.route("/features")
+def features():
+    """Returns list of features"""
+
+
+    # Create list of feature names
+    feature_names = ["Radius Mean", "Radius Standard Error"]
+
+    # Load dataset from sklearn and set X to feature array
+    X = load_breast_cancer().data
+
+    # Select random feature
+    n = random.randint(0, 568)
+    feature_values = X[n]
+
+    # Create dictionary of keys feature names and values
+    features_dict = dict(zip(feature_names, feature_values))
+
+    return jsonify(features_dict)
+
+# IF WE WANT TO MATCH THE ANALYSIS WITH THE FEATURES WE POPULATED, WE NEED TO PASS IN A PARAMETER;
+@app.route("/analyze/<patient_id>")
+def analyze():
     """Submit data to calculator"""
 
 
-    # Collect input data when submit button is selected
-    if request.method == "POST":
-        
-        # Retrieve parameters and add to sample data
-        predict_features = []
-
-        for feature in feature_dict.keys:
-            predict_feature.append(request.form[feature])
-
-    
+    # Translate patient ID to row
+    row = patient_id - 19000
     # Load model and predict diagnosis
     model = load('cancer_model.joblib')
-    prediction = model.predict(sample)
+    prediction = model.predict(row)
     if prediction == 0:
         diagnosis = "Benign"
     else:
         diagnosis = "Malignant"
 
-    return render_template("calculator.html", diagnosis = diagnosis) 
+    return (diagnosis) 
 
 
-# NOT SURE IF THIS IS THE RIGHT WAY TO DO THIS OR SHOULD WE DO IN JAVASCRIPT? COMBINATION OF BOTH?
-@app.route("/reset", methods=["GET", "POST"])
-def reset():
-    """Clears form data"""
+
+# @app.route("/submit", methods=["GET", "POST"])
+# def submit():
+#     """Submit data to calculator"""
 
 
-# todo: returns row for selected patient
-@app.route("/select/<patientid>", methods=["GET", "POST"])
-def select(patientid):
-    """Returns random sample as list"""
+#     # Collect input data when submit button is selected
+#     if request.method == "POST":
+        
+#         # Retrieve parameters and add to sample data
+#         predict_features = []
+
+#         for feature in feature_dict.keys:
+#             predict_feature.append(request.form[feature])
+
+    
+#     # Load model and predict diagnosis
+#     model = load('cancer_model.joblib')
+#     prediction = model.predict(sample)
+#     if prediction == 0:
+#         diagnosis = "Benign"
+#     else:
+#         diagnosis = "Malignant"
+
+#     return render_template("calculator.html", diagnosis = diagnosis) 
 
 
-    # Load dataset from sklearn and set X to feature array
-    cancer = load_breast_cancer()
-    X = cancer.data
+# # NOT SURE IF THIS IS THE RIGHT WAY TO DO THIS OR SHOULD WE DO IN JAVASCRIPT? COMBINATION OF BOTH?
+# @app.route("/reset", methods=["GET", "POST"])
+# def reset():
+#     """Clears form data"""
 
-    # CONSIDER CREATING SOME MORE BETTER PATIENT ID AND MATHING ON IT
-    # Get feature row for selected patient
-    selected_features = X[patientid]
 
-    return render_template("calculator.html", selected_features = selected_features) 
+# # todo: returns row for selected patient
+# @app.route("/select/<patientid>", methods=["GET", "POST"])
+# def select(patientid):
+#     """Returns random sample as list"""
 
-# this is all messed up. ignore it
-@app.route("/random", methods=["GET", "POST"])
-def random():
-    """Returns random sample as list"""
 
-    # Load dataset from sklearn and set X to Feature array
-    cancer = load_breast_cancer()
-    X = cancer.data
+#     # Load dataset from sklearn and set X to feature array
+#     cancer = load_breast_cancer()
+#     X = cancer.data
 
-    # Select random feature
-    n = random.randint(0, 568)
-    sample = X[n]
+#     # CONSIDER CREATING SOME MORE BETTER PATIENT ID AND MATHING ON IT
+#     # Get feature row for selected patient
+#     selected_features = X[patientid]
 
-    # Is this a render template thing?    
-    render_template("calculator.html", feature_name = sample)
+#     return render_template("calculator.html", features_dict = features_dict, selected_features = selected_features) 
+
+# # this is all messed up. ignore it
+# @app.route("/random", methods=["GET", "POST"])
+# def random():
+#     """Returns random sample as list"""
+
+#     # Load dataset from sklearn and set X to Feature array
+#     cancer = load_breast_cancer()
+#     X = cancer.data
+
+#     # Select random feature
+#     n = random.randint(0, 568)
+#     sample = X[n]
+
+#     # Is this a render template thing?    
+#     render_template("calculator.html", feature_name = sample)
 
 
 if __name__ == "__main__":

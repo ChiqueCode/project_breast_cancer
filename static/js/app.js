@@ -29,10 +29,10 @@ function createDropdown() {
 }
 
 // REQUIRES THE FOLLOWING HTML: <TAG id=patientID>
-// <TAG id=diagnosis>
+// <TAG id=diagnosis> <-- I think we may need to attach the patient id to this tag?!
 // <TAG id=feature-table>
 // REQUIRES FOLLOWING FLASK ROUTE: 
-// /features --> retunrs dictionary of feature names with feature values
+// /features --> returns dictionary of feature names with feature values
 function selectPatient(patientID) {
 
     /**
@@ -41,14 +41,10 @@ function selectPatient(patientID) {
     /* patient in feature array
     */
 
-// USE THIS IF WE DECIDE TO GO WITH SPECIFIC ROW
-    // var featureIndex = parseInt(patientID) - 19000
-
-
+// IS THIS CORRECT?
     d3.select("#patientID")
-        // USE IF WE GO FOR SPECIFIC ROW
-        // .data(featureIndex)
-        .text(patientID);
+        .text(patientID)
+        .property("value", patientID)
 
     // Clear values for existing feature table and diagnosis
     d3.select("#feature-table").html("");
@@ -71,17 +67,18 @@ function selectPatient(patientID) {
     });
 }
 // REQUIRES THE FOLLOWING HTML: <TAG id=diagnosis>
+// A BUTTON THAT WHEN CLICKED, ACTIVATES THE ANALYZE FUNCTION W/ PARAMETER PATIENTID
 // REQUIRES FOLLOWING FLASK ROUTE: 
 // /analyze --> returns "Malignant" or "Benign"
 
-// If we decide to go with specific row, we'd pass in the index here
-function analyze() {
+// UNSURE ABOUT THE PARAMETERS HERE
+function analyze(patientID) {
 
     /**
     /* Enters diagnosis into form
     */
 
-    d3.json("/analyze").then(function (diagnosis) {
+    d3.json(`/analyze/${patientID}`).then(function (diagnosis) {
         d3.select("#diagnosis").html(diagnosis)
     });
 }
