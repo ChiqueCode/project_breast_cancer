@@ -51,12 +51,9 @@ function selectPatient(patientID) {
 
         // For each feature, enter the feature name and the feature value into a row
         Object.entries(patientFeatures).forEach(([key, value]) => {
-            d3.select("table")
-                .append("tr")
-                .append("td")
-                .text(key)
-                .append("td")
-                .text(value)
+            var tableRow = d3.select("table").append("tr");
+            tableRow.append("td").text(key);
+            tableRow.append("td").text(value);
         });
     });
 }
