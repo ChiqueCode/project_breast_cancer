@@ -3,6 +3,7 @@ import csv
 import os
 import pandas as pd
 import random
+import numpy as np
 from flask import (
     Flask,
     render_template,
@@ -63,17 +64,26 @@ def analyze(patientID):
 
 
     # Translate patient ID to row
-    row = int(patientID) - 19000
+    row = (int(patientID) - 19000)
 
-    # Load model and predict diagnosis
-    model = load('cancer_model.joblib')
-    prediction = model.predict(row)
+    # Load features, model, and scaler 
+    X = load_breast_cancer().data
+    model = load("cancer_model.joblib")
+    scaler = load("scaler.out")
+
+    # Get features for selected row and scale
+    row = np.array([row])
+    feature_values = X[row]
+    feature_values = scaler.transform(feature_values)
+
+    # Predict diagnosis
+    prediction = model.predict(feature_values)
     if prediction == 0:
         diagnosis = "Benign"
     else:
         diagnosis = "Malignant"
 
-    return (diagnosis) 
+    return jsonify(diagnosis)
 
 
 if __name__ == "__main__":
