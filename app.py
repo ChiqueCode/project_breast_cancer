@@ -23,9 +23,9 @@ def index():
 
 
 # vizualisations/tableau route
-@app.route("/viz")
-def viz():
-    return render_template("viz.html")
+@app.route("/story")
+def story():
+    return render_template("story.html")
 
 
 # case studies route
@@ -98,7 +98,6 @@ def analyze(patientID):
         diagnosis = "Malignant"
 
     return jsonify(diagnosis)
-
 
 if __name__ == "__main__":
     # TODO: Remeber to turn debugging off when going live! 
