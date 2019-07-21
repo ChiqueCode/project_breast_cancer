@@ -44,24 +44,22 @@
       </div>
     </div>
 
-    <!-- Request consulation class  -->
+    <!-- Request consultation class  -->
     <div class="request_consultation">
       <div class="grid-container">
         <div class="grid-x grid-padding-x grid-padding-y">
-          <section class="cell large-12 cta-content">
+          <section class="cell large-12 cta-content_request">
             <h2>Request Consultation</h2>
             <p>
               For more information, please fill out the form below and a
               representative will be in touch.
             </p>
           </section>
-          <section
-            class="cell large-12 cta-content"
-            style="display: none;"
-          >
+          <section class="cell large-12 cta-content_thankyou"
+            style="display: none;">
             <h2>Thank you</h2>
             <p>
-              You're request has been submitted, we'll get in touch soon!
+              Your request has been submitted, we'll get in touch soon!
             </p>
           </section>
           <section class="cell large-12">
@@ -148,7 +146,8 @@
     <script>
       $(document).ready(function() {
         $("#request-button").on("click", function() {
-          $(".cta-content").toggle();
+          $(".cta-content_request").hide();
+          $(".cta-content_thankyou").show();
           $('#consultation-form').hide();
         });
       });

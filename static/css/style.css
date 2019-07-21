@@ -35,6 +35,16 @@ a:focus {
   color: #3B0B58;
 }
 
+a.button,
+a.button:visited {
+ color: #FFF3F7;
+}
+
+a.button:hover,
+a.button:focus {
+  color: #FFF3F7;
+}
+
 /* Navigation */
 
 .top-bar, .top-bar ul {
