@@ -17,7 +17,10 @@
       integrity="sha256-xpOKVlYXzQ3P03j397+jWFZLMBXLES3IiryeClgU5og= sha384-gP4DhqyoT9b1vaikoHi9XQ8If7UNLO73JFOOlQV1RATrA7D0O7TjJZifac6NwPps sha512-AKwIib1E+xDeXe0tCgbc9uSvPwVYl6Awj7xl0FoaPFostZHOuDQ1abnDNCYtxL/HWEnVOMrFyf91TDgLPi9pNg=="
       crossorigin="anonymous"
     />
-    <link href="https://fonts.googleapis.com/css?family=Merriweather|Open+Sans|Oswald&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Merriweather|Open+Sans|Oswald&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../static/css/style.css" />
   </head>
   <style></style>
@@ -42,20 +45,20 @@
     <!-- Banner w/ CTA -->
     <div class="banner-container">
       <div class="grid-container">
-        <div class="grid-x align-middle" id="banner">
+        <div class="grid-x align-middle grid-margin-x" id="banner">
           <div class="cell large-6 text-center">
             <img src="../static/images/main_img.jpg" alt="Site Banner" />
           </div>
           <div class="cell large-6">
             <div class="cta-container text-center">
               <h1>Code For The Cure</h1>
+              <h4 class="subheader">Data scientists working for the cure for breast cancer</h4>
               <ul>
                 <li>Real time results</li>
                 <li>95% Accuracy</li>
                 <li>No delays in Treatment</li>
               </ul>
-              <button action="/cta" class="button">Request Consultation</button>
-
+              <a href="/cta" class="button large">Request Consultation</a>
             </div>
           </div>
         </div>
@@ -64,13 +67,16 @@
     <!-- Pull Quotes -->
     <div class="pull-container">
       <div class="grid-container">
-        <div class="grid-x align-middle" id="banner">
+        <div class="grid-x align-middle grid-margin-x" id="banner">
           <div class="cell large-6 text-center">
-            <p>"I am stronger than I thought I was. My favorite phrase has been 'This too shall pass.' I now understand it really well."<p>
-            <p><em>Robin Roberts on her strength of battling cancer</em></p>
+            <blockquote>
+              "I am stronger than I thought I was. My favorite phrase has been
+              'This too shall pass.' I now understand it really well."
+              <cite>Robin Roberts on her strength of battling cancer</cite>
+            </blockquote>
           </div>
           <div class="cell large-6">
-            <img src="../static/images/main_img.jpg" alt="Site Banner" />
+            <img src="../static/images/robin.jpg" alt="Site Banner" />
           </div>
         </div>
       </div>
@@ -78,20 +84,29 @@
 
     <!-- Statistics -->
 
-    <div class="pull-container">
+    <div class="stats-container">
       <div class="grid-container">
-        <div class="grid-x align-middle" id="banner">
-          <div class="cell large-6 text-center">
-            <p>About 1 in 8 U.S. women (about 12%) will develop invasive breast cancer over the course of her lifetime.<p>
-            <p>In 2019, an estimated 268,600 new cases of invasive breast cancer are expected to be diagnosed in women in the U.S.</p>
-            <p>With early detection, the five-year survival rate is almost 100%</p>
+        <div class="grid-x align-center" id="banner">
+          <div class="cell large-4 medium-4 text-center stats-cell">
+            <p>
+              About <strong> 1 in 8 U.S. women (about 12%) </strong> will develop invasive breast
+              cancer over the course of her lifetime.
+            </p>
           </div>
-          <div class="cell large-6">
+
+          <div class="cell large-4 medium-4 text-center stats-cell">
+            <p>
+              In 2019, an estimated <strong>268,600 new cases</strong> of breast cancer are expected to be diagnosed in the U.S.
+            </p>
+          </div>
+          <div class="cell large-4 medium-4 text-center stats-cell">
+            <p>
+              With early detection, like with the real-time results from Code For The Cure, the <strong>5 year survival rate is almost 100%</strong>
+            </p>
           </div>
         </div>
       </div>
     </div>
-
 
     <!-- Footer -->
     <footer class="grid-x grid-padding-x grid-padding-y align-middle">
@@ -101,7 +116,6 @@
           <li>Gretel Uptegrove</li>
           <li>Arjun Subramaniam</li>
           <li>Mike Lygas</li>
-          <li>Gretel Uptegrove</li>
           <li><a href="https://chique.dev/">Kseniya Bogoslavskaya</a></li>
         </ul>
       </div>
