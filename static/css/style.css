@@ -59,6 +59,11 @@ h5,
 h6 {
   font-family: 'Merriweather', serif;
 }
+/* SONYA - NOT SURE IF YOU WANT THIS */
+h1,
+h4 {
+  text-align: center;
+}
 
 label {
   font-family: 'Oswald', sans-serif;
