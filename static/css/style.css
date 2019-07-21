@@ -1,21 +1,53 @@
-/* Color Palette */
-/* https://colorhunt.co/palette/148314 */
+/* Color palette based on: https://colorhunt.co/palette/148314 */
+
+.yellow-sun-rise { color: #F4EA9D }
+.warm-sun-set { color: #C78D78 }
+.bca-pink { color: #E9B7CA }
+.royale-purple { color: #3B0B58 }
+.text-color { color: #11010E }
+.text-color-on-dark { color: #FFF3F7 }
+.link-color { color: #854777 }
+
+/* Google Fonts
+Headers
+  font-family: 'Merriweather', serif;
+Body Text
+  font-family: 'Open Sans', sans-serif;
+Subheadings
+  font-family: 'Oswald', sans-serif;
+*/
 
 body {
   color: #0d0d0d;
-  background-color: white;
-  font-family: "Noto Sans SC", sans-serif;
+  background-color: #FFF3F7;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Links */
+
+a,
+a:visited {
+ color: #854777;
+}
+
+a:hover,
+a:focus {
+  color: #3B0B58;
 }
 
 /* Navigation */
+
+.top-bar, .top-bar ul {
+  background-color: #FFF3F7;
+}
+
 .top-bar {
   padding-top: 25px;
   padding-bottom: 25px;
 }
 
 .top-bar .menu-text {
-  font-family: "Lato", sans-serif;
-  font-weight: 900;
+  font-family: 'Oswald', sans-serif;
 }
 
 /* For all headings */
@@ -25,29 +57,14 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Lato", sans-serif;
-  font-weight: 900;
+  font-family: 'Merriweather', serif;
 }
 
-/* h1 {
-  font-family: 'Kalam', cursive;
-  text-align: center;
-
+label {
+  font-family: 'Oswald', sans-serif;
 }
 
-h3 {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: black;
-  font-size: 32;
-  text-align: center;
-}
-
-h4 {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: black;
-  font-size: 24;
-  text-align: center;
-}*/
+/* Sections */
 
 #header {
   margin-top: 20px;
@@ -61,14 +78,16 @@ h4 {
   font-size: 60px;
 }
 
+/* Buttons */
+
 .button {
-  background-color: #5a8c7a;
-  color: #f2f2f2;
+  background-color: #3B0B58;
+  color: #FFF3F7;
 }
 .button:hover,
 .button:focus {
-  background-color: #fac0e1;
-  color: #f2f2f2;
+  background-color: #854777;
+  color: #FFF3F7;
 }
 
 
@@ -78,6 +97,8 @@ h4 {
   border: 1px solid #cccc99;
   border-radius: 10px;
 }
+
+/* Footer */
 
 footer {
   background-color: #fac0e1;
