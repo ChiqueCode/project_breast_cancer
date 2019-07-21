@@ -28,7 +28,19 @@ h6 {
   font-family: "Lato", sans-serif;
   font-weight: 900;
 }
+/* SONYA - NOT SURE IF YOU WANT THIS */
+h1,
+h4 {
+  text-align: center;
+}
 
+option {
+  font-size: 24;
+}
+
+td {
+  text-align: left;
+}
 /* h1 {
   font-family: 'Kalam', cursive;
   text-align: center;

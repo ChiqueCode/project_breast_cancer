@@ -13,7 +13,7 @@ function createDropdown() {
     // Add first dropdown item
     d3.select("#selPatient")
         .append("option")
-        .text("Select Patient ID");
+        .text("");
 
     // Create dropdown menu of patientID's to populate the select options
     patientList.forEach((patientID) => {
@@ -32,16 +32,12 @@ function selectPatient(patientID) {
     /* patient in feature array
     */
 
-    // Populates patient ID field
-    d3.select("#patientID")
-        .text(patientID);
-
     // Connects analyze function to button and passes in patientID
     d3.select("#analyze")
         .on("click", analyze(patientID));
 
     // Clear values for existing feature table and diagnosis
-    d3.select("table").html("");
+    d3.select("tbody").html("");
     d3.select("#diagnosis").html("");
 
     var url = `/features/${patientID}`;
@@ -51,7 +47,7 @@ function selectPatient(patientID) {
 
         // For each feature, enter the feature name and the feature value into a row
         Object.entries(patientFeatures).forEach(([key, value]) => {
-            var tableRow = d3.select("table").append("tr");
+            var tableRow = d3.select("tbody").append("tr");
             tableRow.append("td").text(key);
             tableRow.append("td").text(value);
         });
@@ -68,7 +64,7 @@ function analyze(patientID) {
     var url = `/analyze/${patientID}`;
 
     d3.json(url).then(function (diagnosis) {
-        d3.select("#diagnosis").html(diagnosis)
+        d3.select("#diagnosis").html(`Diagnosis: ${diagnosis}`)
     });
 }
 
