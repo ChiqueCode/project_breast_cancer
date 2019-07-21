@@ -63,7 +63,7 @@
             </p>
           </section>
           <section class="cell large-12">
-            <form action="#" id="consultation-form">
+            <form id="consultation-form">
               <div class="form-group">
                 <label for="hospital">Name of the Hospital</label>
                 <input
@@ -145,10 +145,13 @@
     <!-- toggle on a class .cta-content -->
     <script>
       $(document).ready(function() {
-        $("#request-button").on("click", function() {
+        $("#request-button").on("click", function(e) {
+          // Prevent page refresh that happens on HTML forms
+          e.preventDefault();
+          // Hide/show appropriate elements
           $(".cta-content_request").hide();
-          $(".cta-content_thankyou").show();
           $('#consultation-form').hide();
+          $(".cta-content_thankyou").show();
         });
       });
     </script>
