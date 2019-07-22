@@ -147,6 +147,19 @@ label {
   border-left-color: #11010e;
 }
 
+/* DEMO */
+
+.how-container {
+  color: #3b0b58;
+  background-color: hsla(53, 80%, 79%, .45);
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.demo-container th {
+  text-align: center;
+}
+
 /* Sections */
 
 .banner-container,
