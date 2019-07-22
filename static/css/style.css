@@ -1,21 +1,78 @@
-/* Color Palette */
-/* https://colorhunt.co/palette/148314 */
+/* Color palette based on: https://colorhunt.co/palette/148314 */
+
+.yellow-sun-rise {
+  color: #f4ea9d;
+}
+.warm-sun-set {
+  color: #c78d78;
+}
+.bca-pink {
+  color: #e9b7ca;
+}
+.royale-purple {
+  color: #3b0b58;
+}
+.text-color {
+  color: #11010e;
+}
+.text-color-on-dark {
+  color: #fff3f7;
+}
+.link-color {
+  color: #854777;
+}
+
+/* Google Fonts
+Headers
+  font-family: 'Merriweather', serif;
+Body Text
+  font-family: 'Open Sans', sans-serif;
+Subheadings
+  font-family: 'Oswald', sans-serif;
+*/
 
 body {
-  color: #0d0d0d;
-  background-color: white;
-  font-family: "Noto Sans SC", sans-serif;
+  color: #11010e;
+  background-color: #fff3f7;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Links */
+
+a,
+a:visited {
+  color: #854777;
+}
+
+a:hover,
+a:focus {
+  color: #3b0b58;
+}
+
+a.button,
+a.button:visited {
+  color: #fff3f7;
+}
+
+a.button:hover,
+a.button:focus {
+  color: #fff3f7;
 }
 
 /* Navigation */
+
+.top-bar,
+.top-bar ul {
+  background-color: #fff3f7;
+}
+
 .top-bar {
   padding-top: 25px;
   padding-bottom: 25px;
 }
 
 .top-bar .menu-text {
-  font-family: "Lato", sans-serif;
-  font-weight: 900;
+  font-family: "Oswald", sans-serif;
 }
 
 /* For all headings */
@@ -25,29 +82,24 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Lato", sans-serif;
-  font-weight: 900;
+  font-family: "Merriweather", serif;
 }
-
-/* h1 {
-  font-family: 'Kalam', cursive;
-  text-align: center;
-
-}
-
-h3 {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: black;
-  font-size: 32;
-  text-align: center;
-}
-
+/* SONYA - NOT SURE IF YOU WANT THIS */
+h1,
 h4 {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: black;
-  font-size: 24;
-  text-align: center; */
+  text-align: center;
 }
+
+.subheader {
+  font-family: "Oswald", sans-serif;
+  color: #3b0b58;
+}
+
+label {
+  font-family: "Oswald", sans-serif;
+}
+
+/* Sections */
 
 #header {
   margin-top: 20px;
@@ -61,21 +113,108 @@ h4 {
   font-size: 60px;
 }
 
+/* Buttons */
 
-
-
-.box {
-  background-color: darkkhaki;
-  padding: 1em;
-  border: 1px solid #cccc99;
-  border-radius: 10px;
+.button {
+  background-color: #3b0b58;
+  color: #fff3f7;
+}
+.button:hover,
+.button:focus {
+  background-color: #854777;
+  color: #fff3f7;
 }
 
+/* CTA Banner */
 
+.cta-container ul {
+  list-style-type: none;
+}
 
+/* Pull Quote */
 
+.pull-container {
+  font-family: "Oswald", sans-serif;
+  background-color: hsla(16, 41%, 63%, .45);
+}
 
+.pull-container blockquote,
+.pull-container cite {
+  color: #11010e;
+}
+.pull-container blockquote {
+  font-size: 30px;
+  border-left-color: #11010e;
+}
 
+/* Sections */
 
+.banner-container,
+.pull-container,
+.stats-container,
+footer {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
 
+/* Statistic Section */
 
+.stats-container {
+  background-color: hsla(53, 80%, 79%, .45);
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+}
+
+.stats-cell {
+  position: relative;
+  padding: 100px;
+}
+
+@media print, screen and (min-width: 40em) {
+  .stats-cell {
+    padding: 60px;
+  }
+}
+
+.stats-cell p {
+  position: relative;
+  z-index: 1;
+}
+
+.stats-cell::after {
+  content: "";
+  position: absolute;
+  top: 55%;
+  right: 50%;
+  bottom: auto;
+  left: auto;
+  z-index: 0;
+  height: 15rem;
+  width: 15rem;
+  background: #fff3f7;
+  border-radius: 50%;
+  -webkit-transform: translate(50%, -65%);
+  transform: translate(50%, -65%);
+  opacity: 0.6;
+}
+
+/* Footer */
+
+footer {
+  background-color: #3b0b58;
+  color: #cccc99;
+}
+
+footer ul .no-bullet {
+  list-style-type: none;
+}
+
+/* link should look the same after visiting it */
+footer a,
+footer a:visited {
+  color: #cccc99;
+}
+footer a:hover,
+footer a:focus {
+  color: #fff3f7;
+}

@@ -27,10 +27,7 @@
       integrity="sha256-xpOKVlYXzQ3P03j397+jWFZLMBXLES3IiryeClgU5og= sha384-gP4DhqyoT9b1vaikoHi9XQ8If7UNLO73JFOOlQV1RATrA7D0O7TjJZifac6NwPps sha512-AKwIib1E+xDeXe0tCgbc9uSvPwVYl6Awj7xl0FoaPFostZHOuDQ1abnDNCYtxL/HWEnVOMrFyf91TDgLPi9pNg=="
       crossorigin="anonymous"
     />
-    <link
-      href="https://fonts.googleapis.com/css?family=Kalam:700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|Open+Sans|Oswald&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../static/css/style.css" />
   </head>
   <style></style>
@@ -40,14 +37,15 @@
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="menu">
-          <li class="menu-text">Code for The Cure</li>
-          <li><a href="/">Home</a></li>
+          <li class="menu-text"><a href="/">Code for The Cure</a></li>
         </ul>
       </div>
       <div class="top-bar-right">
         <ul class="menu">
-          <li><a href="#">BBB Service</a></li>
-          <li><a href="#">Request consultation</a></li>
+          <li><a href="/story">Our Story</a></li>
+          <li><a href="/cases">Case Studies</a></li>
+          <li><a href="/calculator">Demo</a></li>
+          <li><a href="/cta">Request Consultation</a></li>
         </ul>
       </div>
     </div>
@@ -62,38 +60,70 @@
               <h1>How it works</h1>
             </div>
             <div class="cell large-2">
-              <p>Hospital DataBase</p>
+              <img src="../static/images/database.png" alt="Hospital Database" style="text-align: center">
+              <h4>Connect Database</h4>
             </div>
             <div class="cell large-1">
-              <p>Arrow</p>
+                <img src="../static/images/arrow.png" alt="Arrow" style="text-align: center">
             </div>
             <div class="cell large-2">
-              <p>BBB</p>
+              <img src="../static/images/patient.png" alt="Patient" style="text-align: center">
+              <h4>Select Patient</h4>
             </div>
             <div class="cell large-1">
-              <p>Arrow</p>
+                <img src="../static/images/arrow.png" alt="Arrow" style="text-align: center">
             </div>
             <div class="cell large-2">
-              <p>Chose a patient</p>
+                <img src="../static/images/app.png" alt="Analyze" style="text-align: center">
+              <h4>Analyze Data</h4>
             </div>
-            <div class="cell large-1">
-              <p>Arrow</p>
+            <div class="cell large-1" style="align-content: center">
+                <img src="../static/images/arrow.png" alt="Arrow" style="text-align: center">
             </div>
             <div class="cell large-2">
-              <p>Get Result</p>
+              <img src="../static/images/report.png" alt="result" style="text-align: center">
+              <h4>Get Results</h4>
+            </div>
+            <div class="cell large-1" style="align-content: center">
+                <img src="../static/images/check.png" alt="Check" style="text-align: center">
             </div>
           </div>
         </div>
-      </div>  
+      </div>
 
-    <select id="selPatient" onchange="selectPatient(this.value)"></select>
-    <h2 id="patientID">Patient ID: </h2>
-    <table></table>
-    <button id="analyze">Analyze</button>
-    <h2 id="diagnosis">Diagnosis: </h2>
+      <div class="callout primary">
+          <h2>Demo: Try it below!</h2>
+        </div>
+      
+      <div class="pull-container">
+          <div class="grid-container">
+            <div class="grid-x align-middle" id="app">
+              <div class="cell large-6 text-center">
+                <h3>Select Patient ID</h3>
+                <select id="selPatient" onchange="selectPatient(this.value)"></select>
+                <table>
+                    <thead>
+                      <tr>
+                        <th width="200">Measurement</th>
+                        <th width="200">Value</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <button class="large button" id="analyze">Analyze</button>
+              </div>
+              <div class="cell large-6">
+                  <h3 id="diagnosis">Diagnosis: </h3>
+                  <!-- OTHER CONTENT HERE? -->
+              </div>
+            </div>
+          </div>
+        </div>
+
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="../static/js/app.js"></script>
-</body>
+
 
     <!-- Footer -->
     <footer class="grid-x grid-padding-x grid-padding-y align-middle">
@@ -123,7 +153,7 @@
           </p>
         </div>
       </footer>
-
+    </body>
 </html>
 
 
