@@ -147,14 +147,27 @@ label {
   border-left-color: #11010e;
 }
 
+/* DEMO */
+
+.how-container {
+  color: #3b0b58;
+  background-color: hsla(53, 80%, 79%, .45);
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.demo-container th {
+  text-align: center;
+}
+
 /* Sections */
 
 .banner-container,
 .pull-container,
 .stats-container,
 footer {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 90px;
+  padding-bottom: 80px;
 }
 
 /* Statistic Section */

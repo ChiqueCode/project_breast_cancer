@@ -57,32 +57,32 @@
         <div class="grid-container">
           <div class="grid-x align-middle" id="banner">
             <div class="cell large-12">
-              <h1>How it works</h1>
+              <h4>An integrated Platform that streamlines the Patient mammogram's results and provides the diagnosis</h4>
             </div>
-            <div class="cell large-2">
+            <div class="cell large-2 text-center">
               <img src="../static/images/database.png" alt="Hospital Database" style="text-align: center">
-              <h4>Connect Database</h4>
+              <h5>Connect Database</h5>
             </div>
             <div class="cell large-1">
                 <img src="../static/images/arrow.png" alt="Arrow" style="text-align: center">
             </div>
-            <div class="cell large-2">
+            <div class="cell large-2 text-center">
               <img src="../static/images/patient.png" alt="Patient" style="text-align: center">
-              <h4>Select Patient</h4>
+              <h5>Select Patient</h5>
             </div>
             <div class="cell large-1">
                 <img src="../static/images/arrow.png" alt="Arrow" style="text-align: center">
             </div>
-            <div class="cell large-2">
+            <div class="cell large-2 text-center">
                 <img src="../static/images/app.png" alt="Analyze" style="text-align: center">
-              <h4>Analyze Data</h4>
+              <h5>Analyze Data</h5>
             </div>
             <div class="cell large-1" style="align-content: center">
                 <img src="../static/images/arrow.png" alt="Arrow" style="text-align: center">
             </div>
-            <div class="cell large-2">
+            <div class="cell large-2 text-center">
               <img src="../static/images/report.png" alt="result" style="text-align: center">
-              <h4>Get Results</h4>
+              <h5>Get Results</h5>
             </div>
             <div class="cell large-1" style="align-content: center">
                 <img src="../static/images/check.png" alt="Check" style="text-align: center">
@@ -91,27 +91,27 @@
         </div>
       </div>
 
-      <div class="callout primary">
+      <!-- <div class="callout primary">
           <h2>Demo: Try it below!</h2>
-        </div>
+        </div> -->
       
-      <div class="pull-container">
+      <div class="demo-container">
           <div class="grid-container">
-            <div class="grid-x align-middle" id="app">
+            <div class="grid-x align-middle grid-margin-x" id="app">
               <div class="cell large-6 text-center">
-                <h3>Select Patient ID</h3>
+                <h4>Select Patient ID</h4>
                 <select id="selPatient" onchange="selectPatient(this.value)"></select>
                 <table>
                     <thead>
                       <tr>
-                        <th width="200">Measurement</th>
-                        <th width="200">Value</th>
+                        <th>Measurement</th>
+                        <th>Value</th>
                       </tr>
                     </thead>
                     <tbody>
                     </tbody>
                 </table>
-                <button class="large button" id="analyze">Analyze</button>
+                <button class="large button expanded" id="analyze">Analyze</button>
               </div>
               <div class="cell large-6">
                   <h3 id="diagnosis">Diagnosis: </h3>
