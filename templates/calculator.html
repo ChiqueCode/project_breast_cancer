@@ -100,7 +100,9 @@
             <div class="grid-x align-middle" id="app">
               <div class="cell large-6 text-center">
                 <h3>Select Patient ID</h3>
-                <select id="selPatient" onchange="selectPatient(this.value)"></select>
+                <form>
+                <select id="selPatient"onchange="submitdropdownvalue(this.value)"></select>
+                <!-- <select id="selPatient" onchange="selectPatient(this.value)"></select> -->
                 <table>
                     <thead>
                       <tr>
@@ -111,7 +113,8 @@
                     <tbody>
                     </tbody>
                 </table>
-                <button class="large button" id="analyze">Analyze</button>
+                <button value="testvalue" type="submit" class="large button" id="analyze">Analyze</button>
+                </form>
               </div>
               <div class="cell large-6">
                   <h3 id="diagnosis">Diagnosis: </h3>
