@@ -28,50 +28,98 @@
   <style></style>
 
   <body>
-    <!-- Header -->
-    <div class="top-bar">
-      <div class="top-bar-left">
-        <ul class="menu">
-          <li class="menu-text"><a href="/">Code for The Cure</a></li>
-        </ul>
-      </div>
-      <div class="top-bar-right">
-        <ul class="menu">
-          <li><a href="/story">Our Story</a></li>
-          <li><a href="/cases">Case Studies</a></li>
-          <li><a href="/calculator">Demo</a></li>
-          <li><a href="/cta">Request Consultation</a></li>
-        </ul>
-      </div>
-    </div>
     <!-- Banner w/ CTA -->
-    <div class="banner-container">
-      <div class="grid-container">
-        <div class="grid-x align-middle grid-margin-x" id="banner">
-          <div class="cell large-6 text-center">
-            <img src="../static/images/main_img.jpg" alt="Site Banner" />
+
+    <div class="homepage-hero-module">
+        <div class="video-container">
+          <div class="filter">
+            <div class="top-bar">
+              <div class="top-bar-left">
+                <ul class="menu">
+                  <li class="menu-text"><a href="/">Code for The Cure</a></li>
+                </ul>
+              </div>
+              <div class="top-bar-right">
+                <ul class="menu">
+                  <li><a href="/story">Our Story</a></li>
+                  <li><a href="/cases">Case Studies</a></li>
+                  <li><a href="/calculator">Demo</a></li>
+                  <li><a href="/cta">Request Consultation</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="grid-container">
+              <div
+                class="grid-x align-center align-middle grid-margin-x"
+                id="banner"
+              >
+                <div class="cell large-6 cta-container text-center">
+                  <h1>Code For The Cure</h1>
+                  <h4 class="subheader">
+                    Data scientists working for the cure for breast cancer
+                  </h4>
+                  <ul>
+                    <li>Real time results</li>
+                    <li>95% Accuracy</li>
+                    <li>No delays in Treatment</li>
+                  </ul>
+                  <a href="/cta" class="button large expanded">Request Consultation</a>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="cell large-6">
-            <div class="cta-container text-center">
-              <h1>Code For The Cure</h1>
-              <h4 class="subheader">
-                Data scientists working for the cure for breast cancer
-              </h4>
-              <ul>
-                <li>Real time results</li>
-                <li>95% Accuracy</li>
-                <li>No delays in Treatment</li>
-              </ul>
-              <a href="/cta" class="button large">Request Consultation</a>
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            src="../static/video/coverr-manila-walk-1558719611141.mp4"
+            class="fillWidth"
+          ></video>
+          <div class="poster hidden">
+            <!-- Fallback Image -->
+            <img
+              src="../static/images/coverr-manila-walk-1558719611141.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+
+    <!-- Statistics -->
+
+    <div class="stats-container">
+        <div class="grid-container">
+          <div class="grid-x align-center">
+            <div class="cell large-4 medium-4 text-center stats-cell">
+              <p>
+                About <strong> 1 in 8 U.S. women (about 12%) </strong> will
+                develop invasive breast cancer over the course of her lifetime.
+              </p>
+            </div>
+  
+            <div class="cell large-4 medium-4 text-center stats-cell">
+              <p>
+                In 2019, an estimated <strong>268,600 new cases</strong> of breast
+                cancer are expected to be diagnosed in the U.S.
+              </p>
+            </div>
+            <div class="cell large-4 medium-4 text-center stats-cell">
+              <p>
+                With early detection, like with the real-time results from Code
+                For The Cure, the
+                <strong>5 year survival rate is almost 100%</strong>
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
+  
     <!-- Pull Quotes -->
+
     <div class="pull-container">
       <div class="grid-container">
-        <div class="grid-x align-middle grid-margin-x" id="banner">
+        <div class="grid-x align-middle grid-margin-x">
           <div class="cell large-6 text-center">
             <blockquote>
               "I am stronger than I thought I was. My favorite phrase has been
@@ -81,35 +129,6 @@
           </div>
           <div class="cell large-6">
             <img src="../static/images/robin.jpg" alt="Site Banner" />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Statistics -->
-
-    <div class="stats-container">
-      <div class="grid-container">
-        <div class="grid-x align-center" id="banner">
-          <div class="cell large-4 medium-4 text-center stats-cell">
-            <p>
-              About <strong> 1 in 8 U.S. women (about 12%) </strong> will
-              develop invasive breast cancer over the course of her lifetime.
-            </p>
-          </div>
-
-          <div class="cell large-4 medium-4 text-center stats-cell">
-            <p>
-              In 2019, an estimated <strong>268,600 new cases</strong> of breast
-              cancer are expected to be diagnosed in the U.S.
-            </p>
-          </div>
-          <div class="cell large-4 medium-4 text-center stats-cell">
-            <p>
-              With early detection, like with the real-time results from Code
-              For The Cure, the
-              <strong>5 year survival rate is almost 100%</strong>
-            </p>
           </div>
         </div>
       </div>
@@ -126,8 +145,6 @@
           <li>Smita Sharma</li>
           <li><a href="https://chique.dev/">Kseniya Bogoslavskaya</a></li>
         </ul>
-      </div>
-      <div class="cell large-3 text-center">
         <p>
           <small>
             <a href="#">Back to top</a>
@@ -159,10 +176,82 @@
     <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
     <!-- TODO: Are we using d3-tip? -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script> -->
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/js/foundation.min.js"
       integrity="sha256-/PFxCnsMh+nTuM0k3VJCRch1gwnCfKjaP8rJNq5SoBg= sha384-9ksAFjQjZnpqt6VtpjMjlp2S0qrGbcwF/rvrLUg2vciMhwc1UJJeAAOLuJ96w+Nj sha512-UMSn6RHqqJeJcIfV1eS2tPKCjzaHkU/KqgAnQ7Nzn0mLicFxaVhm9vq7zG5+0LALt15j1ljlg8Fp9PT1VGNmDw=="
       crossorigin="anonymous"
     ></script>
+
+    <script>
+      // jQuery is required to run this code
+      $(document).ready(function() {
+        scaleVideoContainer();
+
+        initBannerVideoSize(".video-container .poster img");
+        initBannerVideoSize(".video-container .filter");
+        initBannerVideoSize(".video-container video");
+
+        $(window).on("resize", function() {
+          scaleVideoContainer();
+          scaleBannerVideoSize(".video-container .poster img");
+          scaleBannerVideoSize(".video-container .filter");
+          scaleBannerVideoSize(".video-container video");
+        });
+      });
+
+      function scaleVideoContainer() {
+        var height = $(window).height() + 5;
+        var unitHeight = parseInt(height) + "px";
+        $(".homepage-hero-module").css("height", unitHeight);
+      }
+
+      function initBannerVideoSize(element) {
+        $(element).each(function() {
+          $(this).data("height", $(this).height());
+          $(this).data("width", $(this).width());
+        });
+
+        scaleBannerVideoSize(element);
+      }
+
+      function scaleBannerVideoSize(element) {
+        var windowWidth = $(window).width(),
+          windowHeight = $(window).height() + 5,
+          videoWidth,
+          videoHeight;
+
+        // console.log(windowHeight);
+
+        $(element).each(function() {
+          var videoAspectRatio = $(this).data("height") / $(this).data("width");
+
+          $(this).width(windowWidth);
+
+          if (windowWidth < 1000) {
+            videoHeight = windowHeight;
+            videoWidth = videoHeight / videoAspectRatio;
+            $(this).css({
+              "margin-top": 0,
+              "margin-left": -(videoWidth - windowWidth) / 2 + "px"
+            });
+
+            $(this)
+              .width(videoWidth)
+              .height(videoHeight);
+          }
+
+          $(".homepage-hero-module .video-container video").addClass(
+            "fadeIn animated"
+          );
+        });
+      }
+    </script>
   </body>
 </html>
