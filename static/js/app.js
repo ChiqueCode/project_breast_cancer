@@ -44,7 +44,6 @@ function selectPatient(patientID) {
     /* @param {string}    patientID    ID of selected patient 
     /* patient in feature array
     */
-
   // Clear values for existing feature table and diagnosis
   d3.select("tbody").html("");
   d3.select("#diagnosis").html("");

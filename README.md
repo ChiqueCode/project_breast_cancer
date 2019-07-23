@@ -85,7 +85,9 @@ INSERT DATA SET INFORMATION PER THE FOLLOWING:
 
 ### Step 4: Front-End Development
 
-* SONYA - FILL THIS OUT
+* We have organized our website so that we have our story and what motivates us in a separate tab (white paper), demo and case studies locate in a separate tabs as well. We decided to give a lot of breathing space for our landing page in order not to overwhelm the user. "Breast cancer awareness" is our main goal for this project.
+
+Our Front-End Development tools are: Foundation (for more flexibility) and jQuery (to be toggle our request form), fontawesome (for social links). To make out website so incredibly beautiful and achieve the harmony and to feel the flow of the website we used resources such as: Google Fonts, Unsplash, Coverr, Colorhunt, Color Converter (Hsl specifically) to make the background and the font color the same with different saturation that helps to keep the transition smooth. Overall, the main goal for the website to make it user friendly.
 
 ### Step 5: Machine Learning
 
