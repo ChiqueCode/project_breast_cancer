@@ -57,32 +57,32 @@
         <div class="grid-container">
           <div class="grid-x align-middle" id="banner">
             <div class="cell large-12">
-              <h1>How it works</h1>
+              <h4>An integrated Platform that streamlines the Patient mammogram's results and provides the diagnosis</h4>
             </div>
-            <div class="cell large-2">
+            <div class="cell large-2 text-center">
               <img src="../static/images/database.png" alt="Hospital Database" style="text-align: center">
-              <h4>Connect Database</h4>
+              <h5>Connect Database</h5>
             </div>
             <div class="cell large-1">
                 <img src="../static/images/arrow.png" alt="Arrow" style="text-align: center">
             </div>
-            <div class="cell large-2">
+            <div class="cell large-2 text-center">
               <img src="../static/images/patient.png" alt="Patient" style="text-align: center">
-              <h4>Select Patient</h4>
+              <h5>Select Patient</h5>
             </div>
             <div class="cell large-1">
                 <img src="../static/images/arrow.png" alt="Arrow" style="text-align: center">
             </div>
-            <div class="cell large-2">
+            <div class="cell large-2 text-center">
                 <img src="../static/images/app.png" alt="Analyze" style="text-align: center">
-              <h4>Analyze Data</h4>
+              <h5>Analyze Data</h5>
             </div>
             <div class="cell large-1" style="align-content: center">
                 <img src="../static/images/arrow.png" alt="Arrow" style="text-align: center">
             </div>
-            <div class="cell large-2">
+            <div class="cell large-2 text-center">
               <img src="../static/images/report.png" alt="result" style="text-align: center">
-              <h4>Get Results</h4>
+              <h5>Get Results</h5>
             </div>
             <div class="cell large-1" style="align-content: center">
                 <img src="../static/images/check.png" alt="Check" style="text-align: center">
@@ -90,67 +90,75 @@
           </div>
         </div>
       </div>
-
-      <div class="callout primary">
-          <h2>Demo: Try it below!</h2>
-        </div>
       
-      <div class="pull-container">
+      <div class="demo-container">
           <div class="grid-container">
-            <div class="grid-x align-middle" id="app">
+            <div class="grid-x align-middle grid-margin-x" id="app">
               <div class="cell large-6 text-center">
-                <h3>Select Patient ID</h3>
+                <h4>Select Patient ID</h4>
                 <select id="selPatient" onchange="selectPatient(this.value)"></select>
                 <table>
                     <thead>
                       <tr>
-                        <th width="200">Measurement</th>
-                        <th width="200">Value</th>
+                        <th>Measurement</th>
+                        <th>Value</th>
                       </tr>
                     </thead>
                     <tbody>
                     </tbody>
                 </table>
-                <button class="large button" id="analyze">Analyze</button>
+                <button class="large button expanded" id="analyze">Analyze</button>
               </div>
               <div class="cell large-6">
-                  <h3 id="diagnosis">Diagnosis: </h3>
+                <div class="result text-center">
+                  <h1 id="diagnosis">Diagnosis: </h1>
                   <!-- OTHER CONTENT HERE? -->
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-    <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="../static/js/app.js"></script>
 
 
     <!-- Footer -->
-    <footer class="grid-x grid-padding-x grid-padding-y align-middle">
-        <div class="cell medium-7 large-5 text-center">
+    <footer class="grid-x grid-padding-x grid-padding-y align-center">
+        <div class="cell large-12 text-center">
           <h3>Site Created with ❤️ by:</h3>
           <ul class="no-bullet">
-            <li>Gretel Uptegrove</li>
+            <li><a href="https://github.com/gretelup">Gretel Uptegrove</a></li>
             <li>Arjun Subramaniam</li>
             <li>Mike Lygas</li>
-            <li>Gretel Uptegrove</li>
+            <li>Smita Sharma</li>
             <li><a href="https://chique.dev/">Kseniya Bogoslavskaya</a></li>
-          </ul>
-        </div>
-        <div class="cell medium-5 large-5">
-          <h3>Fight cancer together</h3>
-          <p>
-            Here's an overview:
-          </p>
-          <ul>
-            <li>list1</li>
-            <li>List2</li>
           </ul>
           <p>
             <small>
               <a href="#">Back to top</a>
             </small>
           </p>
+        </div>
+        <div class="cell large-3 text-center">
+          <!-- Facebook link -->
+          <a href="https://facebook.com" target="_blank">
+            <span style="font-size: 48px; color: #3b5998;">
+              <i class="fab fa-facebook-f"></i>
+            </span>
+          </a>
+          <!-- Twitter link -->
+          <a href="https://twitter.com" target="_blank">
+            <span style="font-size: 48px; color: Dodgerblue;">
+              <i class="fab fa-twitter"></i>
+            </span>
+          </a>
+          <!-- Instagram link -->
+          <a href="https://instagram.com" target="_blank">
+            <span style="font-size: 48px; color: #fb3958">
+              <i class="fab fa-instagram"></i>
+            </span>
+          </a>
         </div>
       </footer>
     </body>

@@ -63,10 +63,12 @@ a.button:focus {
 
 .top-bar,
 .top-bar ul {
-  background-color: #fff3f7;
+  background-color: transparent;
 }
 
 .top-bar {
+  z-index: 101;
+  position: relative;
   padding-top: 25px;
   padding-bottom: 25px;
 }
@@ -92,7 +94,7 @@ h4 {
 
 .subheader {
   font-family: "Oswald", sans-serif;
-  color: #3b0b58;
+  color: hsl(337, 53%, 35%);
 }
 
 label {
@@ -127,6 +129,21 @@ label {
 
 /* CTA Banner */
 
+#banner {
+  /* Calculating the height based on the video and top-bar */
+  height: calc(100vh - 105.75px);
+}
+
+.cta-container {
+  background-color: hsla(340, 100%, 98%, 0.75);
+  padding: 50px;
+}
+
+.cta-container h1,
+.cta-container ul {
+  color: hsl(337, 53%, 20%);
+}
+
 .cta-container ul {
   list-style-type: none;
 }
@@ -135,16 +152,39 @@ label {
 
 .pull-container {
   font-family: "Oswald", sans-serif;
-  background-color: hsla(16, 41%, 63%, .45);
+  background-color: hsla(16, 41%, 63%, 0.45);
 }
 
 .pull-container blockquote,
 .pull-container cite {
-  color: #11010e;
+  color: hsl(16, 41%, 40%);
 }
 .pull-container blockquote {
   font-size: 30px;
-  border-left-color: #11010e;
+  border-left-color: hsl(16, 41%, 40%);
+}
+
+/* Demo */
+
+.how-container {
+  color: #3b0b58;
+  /* background-color: hsla(53, 80%, 79%, 0.45); */
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.demo-container th {
+  text-align: center;
+}
+
+.demo-container {
+  background-color: hsla(53, 80%, 79%, 0.45);
+}
+
+.result {
+  padding: 40px;
+  background-color: #c78d78;
+  color: #fff3f7;
 }
 
 /* Sections */
@@ -152,17 +192,26 @@ label {
 .banner-container,
 .pull-container,
 .stats-container,
+.request-consultation,
+.how-container,
+.demo-container,
 footer {
   padding-top: 100px;
   padding-bottom: 100px;
 }
 
-/* Statistic Section */
+/* Request Consultation */
 
+.request-consultation {
+  padding-top: 50px;
+}
+
+/* Statistic Section */
 .stats-container {
-  background-color: hsla(53, 80%, 79%, .45);
+  background-color: hsla(53, 80%, 79%, 0.45);
   font-family: "Oswald", sans-serif;
   font-size: 20px;
+  color: hsl(53, 80%, 15%);
 }
 
 .stats-cell {
@@ -198,11 +247,86 @@ footer {
   opacity: 0.6;
 }
 
+/* Home Page Video from Coverr @ https://coverr.co/videos/Manila%20Walk */
+
+.homepage-hero-module {
+  border-right: none;
+  border-left: none;
+  position: relative;
+}
+
+.no-video .video-container video,
+.touch .video-container video {
+  display: none;
+}
+
+.no-video .video-container .poster,
+.touch .video-container .poster {
+  display: block !important;
+}
+
+.video-container {
+  position: relative;
+  bottom: 0%;
+  left: 0%;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+.video-container .poster img {
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+}
+
+.video-container .filter {
+  z-index: 100;
+  position: absolute;
+  background: hsla(340, 100%, 98%, 0.75);
+  width: 100%;
+}
+
+.video-container video {
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  background-position: center;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: 50% 50%;
+  object-position: 50% 50%;
+  -webkit-filter: blur(0);
+  filter: blur(0);
+  height: 100%;
+  transition: -webkit-filter 0.35s ease-in-out;
+  transition: filter 0.35s ease-in-out;
+  transition: filter 0.35s ease-in-out, -webkit-filter 0.35s ease-in-out;
+  width: 100%;
+}
+
+.video-container video.fillWidth {
+  width: 100%;
+}
+
+.video-container video.fillWidth {
+  width: 100%;
+}
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden {
+  display: none !important;
+}
+
 /* Footer */
 
 footer {
-  background-color: #3b0b58;
-  color: #cccc99;
+  background-color: hsl(277, 88%, 10%);
+  color: hsl(277, 10%, 60%);
 }
 
 footer ul .no-bullet {
@@ -212,9 +336,9 @@ footer ul .no-bullet {
 /* link should look the same after visiting it */
 footer a,
 footer a:visited {
-  color: #cccc99;
+  color: hsl(277, 10%, 60%);
 }
 footer a:hover,
 footer a:focus {
-  color: #fff3f7;
+  color: hsl(277, 40%, 40%);
 }
