@@ -23,16 +23,27 @@ function createDropdown() {
   });
 }
 
+//Connects analyze function to button and passes in patientID
+d3.select("#analyze")
+    .on("click", function(d){
+        d3.event.preventDefault();
+        console.log(this.value);
+        selectPatient(this.value);
+        analyze(this.value);
+    });
+// document.getElementById("analyze").addEventListener("click", function(event) {
+//   event.preventDefault();
+//   console.log("working");
+// });
+function submitdropdownvalue(newvalue){
+    d3.select("#analyze").property("value", newvalue);
+} 
 function selectPatient(patientID) {
   /**
     /* Populates form with features from selected patient
     /* @param {string}    patientID    ID of selected patient 
     /* patient in feature array
     */
-
-  // Connects analyze function to button and passes in patientID
-  d3.select("#analyze").on("click", analyze(patientID));
-
   // Clear values for existing feature table and diagnosis
   d3.select("tbody").html("");
   d3.select("#diagnosis").html("");
