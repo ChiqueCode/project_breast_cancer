@@ -68,6 +68,11 @@ def percentage_func():
     # Return results in JSON format
     return jsonify(percentage_df.to_dict(orient="records"))
 
+# Map route
+@app.route("/map")
+def map_func():
+    return render_template("map.html")
+    app.add_url_rule('/', 'map_func', map_func)
 
 # Home route
 @app.route("/")
