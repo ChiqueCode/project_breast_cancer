@@ -18,23 +18,22 @@ This page also links to an app developed using machine learning algorithms that 
 * Mike Lygas
 * Gretel Uptegrove
 
-## Languages and Libraries Used
+## Languages, Libraries, and Tools Used
 
 ```
 Python
     pandas
     matplotlib
     sklearn
-    tensorflow
     joblib
     random
     flask
-    UPDATE AS NECESSARY
 Javascript
     d3
-    INSERT ANYTHING ELSE
 HTML
 CSS
+
+Tableau
 ```
 
 ## Motivation
@@ -114,7 +113,13 @@ Our Front-End Development tools are: Foundation (for more flexibility) and jQuer
 * Developed `/submit` route using joblib and sklearn that returns a diagnosis prediction based on data entered in the calculator form.
 * Developed `/random` route using random library that returns a random sample from the Breast Cancer Diagnosis data set.
 
-### Step 7: Deploy on Heroku
+### Step 7: System Requirements
 
-* Created a `requirements.txt` and a `Procfile`.
-* Deployed app on Heroku.
+* Chrome Web Browser
+* Python environment running Python 3.7
+
+## Steps to run the application
+
+1. Run: `pip install -r requirements.txt` to install necessary modules in environment.
+2. Run `app.py`.
+3. Access application at <http://localhost:8000/>.
