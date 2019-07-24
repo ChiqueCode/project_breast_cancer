@@ -88,8 +88,12 @@ INSERT DATA SET INFORMATION PER THE FOLLOWING:
 
 ### Step 3: Tableau Visualizations
 
-* Loaded CDC,IHME,GBD,IARC and WHO into Tableau Desktop and Public
-* Created multiple visualizations to best convey facts on breast cancer
+* Exported CDC,IHME,GBD,IARC and WHO datasets into .csv files
+* Loaded datasets into Tableau Desktop
+* Created a data model for Global which visualized five worksheets and one dashboard
+* Created a data model for United States and visualized four worksheets as well as one story
+* Published to Tableau Public
+* Embeded html code from Tableau Public into story.html
 
 
 ### Step 4: Front-End Development
