@@ -34,11 +34,12 @@ HTML
 CSS
 
 Tableau
-```
+    Dashboard
+    Story
 
 ## Motivation
 
-Breast cancer is the most prevalent type of cancer across the globe, and the United States specifically has the highest rate of cancer diagnosis. Currently, the only way to diagnose breast cancer is to have the tissue inspected by a pathologist; however, many medical centers do not have in-house pathologist, requiring these tissue samples to be sent to an outside facility, sometimes located a great distance. The processing of the specimen and reporting of results to the attending physician is meaured in turnaround time.  Turnaround time often takes several business days. Any delay in treatment can have a detrimental affect on prognosis.
+Breast cancer is the most prevalent type of cancer across the globe, and the United States specifically has the highest rate of cancer diagnosis. Currently, the only way to diagnose breast cancer is to have the tissue inspected by a pathologist; however, many medical centers do not have in-house pathologist, requiring these tissue samples to be sent to an outside facility, sometimes located a great distance.Its has also been observed though global population is increaseing and number of brestcancer cases are increasing , their is a decline in number of pythologist required for diagnosis of cancer results in delay in turnarund time. The processing of the specimen and reporting of results to the attending physician is meaured in turnaround time.  Turnaround time often takes several business days. Any delay in treatment can have a detrimental affect on prognosis.
 
 If, however, medical personnel had access to a tool that would bypass the need for a pathologist, treatment could begin much faster. The app we developed was designed to do just this. Using various measurements of a single cell in suspicious breast tissue, it can predict the chances of that cell being malignant with a 95% accuracy rate. The dataset used to do this was very small; however, and before real-world implementation, it would have to be trained and tested on a much larger data set.
 
@@ -63,11 +64,18 @@ INSERT DATA SET INFORMATION PER THE FOLLOWING:
    *Data includes death rates, absolute number of deaths across countries
     * Data is provided by:
 	Institute of Health Metrics and Evaluation (IHME), Global Burden of Disease (GBD)
+   *Data includes All Cancer cases % across USA and other countries captured over a decade .
+   *Data includes Breast Cancer cases % across USA and other countries captured over a decade.
 
   
 * Breast Cancer Data Set [https://www.bcsc-research.org/]
-  * Data set with Breast Cancer data displaying information such as age of occurance, tumor sizes, node-caps, and region of breast where tumors exist
+  * Dataset with Breast Cancer data displaying information such as age of occurance, tumor sizes, node-caps, and region of breast where tumors exist
   * Michalski,R.S., Mozetic,I., Hong,J., & Lavrac,N. (1986). The Multi-Purpose Incremental Learning System AQ15 and its Testing Application to Three Medical Domains. In Proceedings of the Fifth National Conference on Artificial Intelligence, 1041-1045, Philadelphia, PA: Morgan Kaufmann. – accuracy range: 66%-72% – Clark,P. & Niblett,T. (1987). Induction in Noisy Domains. In Progress in Machine Learning (from the Proceedings of the 2nd European Working Session on Learning), 11-30, Bled, Yugoslavia: Sigma Press. – 8 test results given: 65%-72% accuracy range – Tan, M., & Eshelman, L. (1988). Using weighted networks to represent classification knowledge in noisy domains. Proceedings of the Fifth International Conference on Machine Learning, 121-134, Ann Arbor, MI. – 4 systems tested: accuracy range was 68%-73.5% – Cestnik,G., Konenenko,I, & Bratko,I. (1987). Assistant-86: A Knowledge-Elicitation Tool for Sophisticated Users. In I.Bratko & N.Lavrac (Eds.) Progress in Machine Learning, 31-45, Sigma Press. – Assistant-86: 78% accuracy
+
+* Pythologist Data Set [https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2734800]
+  [https://www.ncbi.nlm.nih.gov]
+  * Dataset with number of pythologist in USA and difference between  them and other doctors percentage .
+  * Metter DM, Colgan TJ, Leung ST, Timmons CF, Park JY. Trends in the US and Canadian pathologist workforces from 2007 to 2017. JAMA Netw Open. 2019;2(5):e194337. doi:10.1001/jamanetworkopen.2019.4337 
 
 
 ## Workflow
@@ -90,7 +98,8 @@ INSERT DATA SET INFORMATION PER THE FOLLOWING:
 * Exported CDC,IHME,GBD,IARC and WHO datasets into .csv files
 * Loaded datasets into Tableau Desktop
 * Created a data model for Global which visualized five worksheets and one dashboard
-* Created a data model for United States and visualized four worksheets as well as one story
+* Created a data model for United States and visualized four worksheets as one story
+* Created a data model for story of cancer and decline in pathologists and visualized four worksheets as one       story
 * Published to Tableau Public
 * Embeded html code from Tableau Public into story.html
 
