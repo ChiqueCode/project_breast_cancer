@@ -12,35 +12,88 @@ from flask import (
 from joblib import load
 from sklearn.datasets import load_breast_cancer
 
+# Sqlite 
+import sqlalchemy
+from sqlalchemy.ext.automap import automap_base
+from sqlalchemy.orm import Session
+from sqlalchemy import create_engine
+from flask import Flask, jsonify, render_template
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.sql import func
+
 #Set up Flask
 app = Flask(__name__)
 
+# TODO: rename "datasets" to db for readability
 
-# home route
+# Database Setup
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///datasets/usa_percentage_state.sqlite"
+datasets = SQLAlchemy(app)
+
+# Reflect an existing database into a new model
+Base = automap_base()
+# reflect the tables
+Base.prepare(datasets.engine, reflect=True)
+
+# Creating an easier reference
+USA_percentage_state_table = Base.classes.usa_percentage_state_table
+
+# Deaths/incidents percentage by state route
+@app.route("/percentage")
+def percentage_func():
+    # stmt = datasets.session.query(USA_percentage_state_table).statement
+    # df = pd.read_sql_query(stmt, datasets.session.bind)
+    # return jsonify(list(df))
+
+ #TODO: Change "sel" to select all
+
+    sel = [
+        USA_percentage_state_table.state,
+        USA_percentage_state_table.abr,
+        USA_percentage_state_table.lat,
+        USA_percentage_state_table.lng,
+        USA_percentage_state_table.incidence,
+        USA_percentage_state_table.population,
+        USA_percentage_state_table.percentage_incident,
+        USA_percentage_state_table.death_count,
+        USA_percentage_state_table.percentage_deaths
+    ]
+
+    # Query the records
+    percentage_results = datasets.session.query(*sel).all()
+
+    # Creating Pandas DataFrame
+    percentage_df = pd.DataFrame(percentage_results, columns=["state", "abr", "lat", "lng", "incidence", "population", "percentage_incident", "death_count", "percentage_deaths"])
+
+    # Return results in JSON format
+    return jsonify(percentage_df.to_dict(orient="records"))
+
+
+# Home route
 @app.route("/")
 def index():
     return render_template("index.html")
 
 
-# vizualisations/tableau route
+# Vizualisations/tableau route
 @app.route("/story")
 def story():
     return render_template("story.html")
 
 
-# case studies route
+# Case studies route
 @app.route("/cases")
 def cases():
     return render_template("cases.html")
 
 
-# demo/calculator route
+# Demo/calculator route
 @app.route("/calculator")
 def calc():
     return render_template("calculator.html")
 
 
-# call to action/request assesment route 
+# Call to action/request assesment route 
 @app.route("/cta")
 def cta():
     return render_template("cta.html")
