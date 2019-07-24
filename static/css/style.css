@@ -342,3 +342,10 @@ footer a:hover,
 footer a:focus {
   color: hsl(277, 40%, 40%);
 }
+
+ /* Map */
+
+ #map {
+  min-height: 500px;
+  width: 100%;
+}
