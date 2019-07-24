@@ -23,10 +23,6 @@ function createDropdown() {
   });
 }
 
-function submitdropdownvalue(newvalue){
-    d3.select("#analyze").property("value", newvalue);
-} 
-
 function selectPatient(patientID) {
   /**
     /* Populates form with features from selected patient
@@ -48,6 +44,21 @@ function selectPatient(patientID) {
       tableRow.append("td").text(key);
       tableRow.append("td").text(value);
     });
+  });
+  analyze(patientID);
+}
+
+function analyze(patientID) {
+
+  /**
+  /* Calculates diagnosis of given patient and populates corresponding field
+  /* @param {string}    patientID    ID of selected patient 
+  */
+
+  var url = `/analyze/${patientID}`;
+
+  d3.json(url).then(function (diagnosis) {
+      d3.select("#diagnosis").html(diagnosis)
   });
 }
 
