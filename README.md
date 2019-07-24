@@ -38,7 +38,7 @@ Tableau
 
 ## Motivation
 
-Breast cancer is the most prevalent type of cancer across the globe, and the United States specifically has the highest rate of cancer diagnosis. Currently, the only way to diagnose breast cancer is to have the tissue inspected by a pathologist; however, many medical centers do not have in-house pathologist, requiring these tissue samples to be sent to an outside facility, sometimes located a great distance. This can cause a significant delay in the start of treatment. Any delay in treatment can have a detrimental affect on prognosis.
+Breast cancer is the most prevalent type of cancer across the globe, and the United States specifically has the highest rate of cancer diagnosis. Currently, the only way to diagnose breast cancer is to have the tissue inspected by a pathologist; however, many medical centers do not have in-house pathologist, requiring these tissue samples to be sent to an outside facility, sometimes located a great distance. The processing of the specimen and reporting of results to the attending physician is meaured in turnaround time.  Turnaround time often takes several business days. Any delay in treatment can have a detrimental affect on prognosis.
 
 If, however, medical personnel had access to a tool that would bypass the need for a pathologist, treatment could begin much faster. The app we developed was designed to do just this. Using various measurements of a single cell in suspicious breast tissue, it can predict the chances of that cell being malignant with a 95% accuracy rate. The dataset used to do this was very small; however, and before real-world implementation, it would have to be trained and tested on a much larger data set.
 
