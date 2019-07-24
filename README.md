@@ -1,4 +1,4 @@
-# Code for the Cure
+﻿# Code for the Cure
 
 ## Website
 
@@ -54,8 +54,17 @@ If, however, medical personnel had access to a tool that would bypass the need f
 
 INSERT DATA SET INFORMATION PER THE FOLLOWING:
 
-* Title of Data Set [Name of Website](website http)
-  * Description on data set and any queries used to get it.
+* US and Puerto Rico Data [Centers for Disease Control and Prevention](https://wonder.cdc.gov/cancer.html)
+  * By year, state, age group, and race
+  * Data are provided by:
+     The Centers for Disease Control and Prevention National Program of Cancer Registries (NPCR)
+     The National Cancer Institute Surveillance, Epidemiology and End Results (SEER) program
+
+* Global Cancer Data https://ourworldindata.org/cancer
+   *Data includes death rates, absolute number of deaths across countries
+    * Data is provided by:
+	Institute of Health Metrics and Evaluation (IHME), Global Burden of Disease (GBD)
+
   
 * Breast Cancer Data Set [https://www.bcsc-research.org/]
   * Data set with Breast Cancer data displaying information such as age of occurance, tumor sizes, node-caps, and region of breast where tumors exist
@@ -79,9 +88,9 @@ INSERT DATA SET INFORMATION PER THE FOLLOWING:
 
 ### Step 3: Tableau Visualizations
 
-* Loaded INSERT DATA SETS into Tableau Desktop.
+* Loaded CDC,IHME,GBD,IARC and WHO into Tableau Desktop and Public
 * Created multiple visualizations to best convey facts on breast cancer
-* ARJUN AND/OR MIKE UPDATE THIS
+
 
 ### Step 4: Front-End Development
 
@@ -97,7 +106,6 @@ Our Front-End Development tools are: Foundation (for more flexibility) and jQuer
 
 ### Step 6: Flask Script
 
-* INSERT DATABASE CODE IF WE GO THAT ROUTE; MIGHT NEED TO REARRANGE THE STEPS A BIT.
 * Used python and flask library to set up routes to render html files.
 * Developed `/submit` route using joblib and sklearn that returns a diagnosis prediction based on data entered in the calculator form.
 * Developed `/random` route using random library that returns a random sample from the Breast Cancer Diagnosis data set.
