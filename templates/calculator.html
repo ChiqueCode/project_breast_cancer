@@ -1,168 +1,149 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>BBB</title>
-</head> -->
-
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Code for The Cure!</title>
-    <link
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
-      rel="stylesheet"
-      integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1"
-      crossorigin="anonymous"
-    />
-    <!-- Foundation docs @ https://foundation.zurb.com/sites/docs/ -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/css/foundation.min.css"
-      integrity="sha256-xpOKVlYXzQ3P03j397+jWFZLMBXLES3IiryeClgU5og= sha384-gP4DhqyoT9b1vaikoHi9XQ8If7UNLO73JFOOlQV1RATrA7D0O7TjJZifac6NwPps sha512-AKwIib1E+xDeXe0tCgbc9uSvPwVYl6Awj7xl0FoaPFostZHOuDQ1abnDNCYtxL/HWEnVOMrFyf91TDgLPi9pNg=="
-      crossorigin="anonymous"
-    />
-    <link href="https://fonts.googleapis.com/css?family=Merriweather|Open+Sans|Oswald&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/style.css" />
-  </head>
-  <style></style>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code for The Cure!</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous" />
+  <!-- Foundation docs @ https://foundation.zurb.com/sites/docs/ -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/css/foundation.min.css"
+    integrity="sha256-xpOKVlYXzQ3P03j397+jWFZLMBXLES3IiryeClgU5og= sha384-gP4DhqyoT9b1vaikoHi9XQ8If7UNLO73JFOOlQV1RATrA7D0O7TjJZifac6NwPps sha512-AKwIib1E+xDeXe0tCgbc9uSvPwVYl6Awj7xl0FoaPFostZHOuDQ1abnDNCYtxL/HWEnVOMrFyf91TDgLPi9pNg=="
+    crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Merriweather|Open+Sans|Oswald&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/style.css" />
+</head>
+<style></style>
+
+<body>
+  <!-- Header -->
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <ul class="menu">
+        <li class="menu-text"><a href="/">Code for The Cure</a></li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <li><a href="/story">Our Story</a></li>
+        <li><a href="/cases">Case Studies</a></li>
+        <li><a href="/calculator">Demo</a></li>
+        <li><a href="/cta">Request Consultation</a></li>
+      </ul>
+    </div>
+  </div>
 
   <body>
-    <!-- Header -->
-    <div class="top-bar">
-      <div class="top-bar-left">
-        <ul class="menu">
-          <li class="menu-text"><a href="/">Code for The Cure</a></li>
-        </ul>
-      </div>
-      <div class="top-bar-right">
-        <ul class="menu">
-          <li><a href="/story">Our Story</a></li>
-          <li><a href="/cases">Case Studies</a></li>
-          <li><a href="/calculator">Demo</a></li>
-          <li><a href="/cta">Request Consultation</a></li>
-        </ul>
-      </div>
-    </div>
-<body>
 
-   <!-- How it works -->
+    <!-- How it works -->
     <!-- 4 sections should be spread evenly (+arrows) Patient Data-> BBB-> populate data -> get result -->
     <div class="how-container">
-        <div class="grid-container">
-          <div class="grid-x align-middle" id="banner">
-            <div class="cell large-12">
-              <h4>An integrated Platform that streamlines the Patient mammogram's results and provides the diagnosis</h4>
-            </div>
-            <div class="cell large-2 text-center">
-              <img src="../static/images/database.png" alt="Hospital Database" style="text-align: center">
-              <h5>Connect Database</h5>
-            </div>
-            <div class="cell large-1">
-                <img src="../static/images/arrow.png" alt="Arrow" style="text-align: center">
-            </div>
-            <div class="cell large-2 text-center">
-              <img src="../static/images/patient.png" alt="Patient" style="text-align: center">
-              <h5>Select Patient</h5>
-            </div>
-            <div class="cell large-1">
-                <img src="../static/images/arrow.png" alt="Arrow" style="text-align: center">
-            </div>
-            <div class="cell large-2 text-center">
-                <img src="../static/images/app.png" alt="Analyze" style="text-align: center">
-              <h5>Analyze Data</h5>
-            </div>
-            <div class="cell large-1" style="align-content: center">
-                <img src="../static/images/arrow.png" alt="Arrow" style="text-align: center">
-            </div>
-            <div class="cell large-2 text-center">
-              <img src="../static/images/report.png" alt="result" style="text-align: center">
-              <h5>Get Results</h5>
-            </div>
-            <div class="cell large-1" style="align-content: center">
-                <img src="../static/images/check.png" alt="Check" style="text-align: center">
+      <div class="grid-container">
+        <div class="grid-x align-middle" id="banner">
+          <div class="cell large-12">
+            <h4>An integrated Platform that streamlines the Patient mammogram's results and provides the diagnosis</h4>
+          </div>
+          <div class="cell large-2 text-center">
+            <img src="../static/images/database.png" alt="Hospital Database" style="text-align: center">
+            <h5>Connect Database</h5>
+          </div>
+          <div class="cell large-1">
+            <img src="../static/images/arrow.png" alt="Arrow" style="text-align: center">
+          </div>
+          <div class="cell large-2 text-center">
+            <img src="../static/images/patient.png" alt="Patient" style="text-align: center">
+            <h5>Select Patient</h5>
+          </div>
+          <div class="cell large-1">
+            <img src="../static/images/arrow.png" alt="Arrow" style="text-align: center">
+          </div>
+          <div class="cell large-2 text-center">
+            <img src="../static/images/app.png" alt="Analyze" style="text-align: center">
+            <h5>Analyze Data</h5>
+          </div>
+          <div class="cell large-1" style="align-content: center">
+            <img src="../static/images/arrow.png" alt="Arrow" style="text-align: center">
+          </div>
+          <div class="cell large-2 text-center">
+            <img src="../static/images/report.png" alt="result" style="text-align: center">
+            <h5>Get Results</h5>
+          </div>
+          <div class="cell large-1" style="align-content: center">
+            <img src="../static/images/check.png" alt="Check" style="text-align: center">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-container">
+      <div class="grid-container">
+        <div class="grid-x align-middle grid-margin-x" id="app">
+          <div class="cell large-6 text-center">
+            <h3>Select Patient ID</h3>
+            <select id="selPatient" onchange="selectPatient(this.value)"></select>
+            <table>
+              <thead>
+                <tr>
+                  <th>Measurement</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+          <div class="cell large-6">
+            <div class="result text-center">
+              <h3 id="diagnosis">Diagnosis: </h3>
             </div>
           </div>
         </div>
       </div>
-      
-      <div class="demo-container">
-          <div class="grid-container">
-            <div class="grid-x align-middle grid-margin-x" id="app">
-              <div class="cell large-6 text-center">
-                <h3>Select Patient ID</h3>
-                <form>
-                <select id="selPatient" onchange="selectPatient(this.value)"></select>
-                <table>
-                    <thead>
-                      <tr>
-                        <th>Measurement</th>
-                        <th>Value</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-                </form>
-                <button type="submit" class="large button expanded" id="analyze">Analyze</button>
-              </div>
-              <div class="cell large-6">
-                <div class="result text-center">
-                  <h3 id="diagnosis">Diagnosis: </h3>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    </div>
 
-  <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="../static/js/app.js"></script>
 
 
     <!-- Footer -->
     <footer class="grid-x grid-padding-x grid-padding-y align-center">
-        <div class="cell large-12 text-center">
-          <h3>Site Created with ❤️ by:</h3>
-          <ul class="no-bullet">
-            <li><a href="https://github.com/gretelup">Gretel Uptegrove</a></li>
-            <li>Arjun Subramaniam</li>
-            <li>Mike Lygas</li>
-            <li>Smita Sharma</li>
-            <li><a href="https://chique.dev/">Kseniya Bogoslavskaya</a></li>
-          </ul>
-          <p>
-            <small>
-              <a href="#">Back to top</a>
-            </small>
-          </p>
-        </div>
-        <div class="cell large-3 text-center">
-          <!-- Facebook link -->
-          <a href="https://facebook.com" target="_blank">
-            <span style="font-size: 48px; color: #3b5998;">
-              <i class="fab fa-facebook-f"></i>
-            </span>
-          </a>
-          <!-- Twitter link -->
-          <a href="https://twitter.com" target="_blank">
-            <span style="font-size: 48px; color: Dodgerblue;">
-              <i class="fab fa-twitter"></i>
-            </span>
-          </a>
-          <!-- Instagram link -->
-          <a href="https://instagram.com" target="_blank">
-            <span style="font-size: 48px; color: #fb3958">
-              <i class="fab fa-instagram"></i>
-            </span>
-          </a>
-        </div>
-      </footer>
-    </body>
+      <div class="cell large-12 text-center">
+        <h3>Site Created with ❤️ by:</h3>
+        <ul class="no-bullet">
+          <li><a href="https://github.com/gretelup">Gretel Uptegrove</a></li>
+          <li>Arjun Subramaniam</li>
+          <li>Mike Lygas</li>
+          <li>Smita Sharma</li>
+          <li><a href="https://chique.dev/">Kseniya Bogoslavskaya</a></li>
+        </ul>
+        <p>
+          <small>
+            <a href="#">Back to top</a>
+          </small>
+        </p>
+      </div>
+      <div class="cell large-3 text-center">
+        <!-- Facebook link -->
+        <a href="https://facebook.com" target="_blank">
+          <span style="font-size: 48px; color: #3b5998;">
+            <i class="fab fa-facebook-f"></i>
+          </span>
+        </a>
+        <!-- Twitter link -->
+        <a href="https://twitter.com" target="_blank">
+          <span style="font-size: 48px; color: Dodgerblue;">
+            <i class="fab fa-twitter"></i>
+          </span>
+        </a>
+        <!-- Instagram link -->
+        <a href="https://instagram.com" target="_blank">
+          <span style="font-size: 48px; color: #fb3958">
+            <i class="fab fa-instagram"></i>
+          </span>
+        </a>
+      </div>
+    </footer>
+  </body>
+
 </html>
-
-
