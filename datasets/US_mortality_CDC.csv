@@ -1,0 +1,58 @@
+﻿Notes,Year,Year Code,Deaths,Population,Crude Rate
+,1999,1999,41528,279040168,14.9
+,2000,2000,42300,282162411,15
+,2001,2001,41809,284968955,14.7
+,2002,2002,41883,287625193,14.6
+,2003,2003,41998,290107933,14.5
+,2004,2004,41316,292805298,14.1
+,2005,2005,41491,295312662,14
+,2006,2006,41209,298379912,13.8
+,2007,2007,40969,301231207,13.6
+,2008,2008,41026,304093966,13.5
+,2009,2009,41076,306771529,13.4
+,2010,2010,41435,309348193,13.4
+,2011,2011,41374,311663358,13.3
+,2012,2012,41555,313998379,13.2
+,2013,2013,41324,316204908,13.1
+,2014,2014,41676,318563456,13.1
+,2015,2015,41986,320896618,13.1
+Total,,,705955,5113174146,13.8
+---,,,,,
+"Dataset: United States and Puerto Rico Cancer Statistics, 1999-2015 Mortality",,,,,
+Query Parameters:,,,,,
+Leading Cancer Sites: Breast,,,,,
+Group By: Year,,,,,
+Show Totals: True,,,,,
+Show Zero Values: False,,,,,
+Show Suppressed: False,,,,,
+"Calculate Rates Per: 100,000",,,,,
+Standard Population: 2000 U.S. Std. Million,,,,,
+---,,,,,
+Help: See http://wonder.cdc.gov/wonder/help/CancerMort-v2015.html for more information.,,,,,
+---,,,,,
+"Query Date: Jul 24, 2019 6:18:41 AM",,,,,
+---,,,,,
+"Suggested Citation: United States Cancer Statistics: 1999 - 2015 Mortality, WONDER Online Database. United States Department of",,,,,
+"Health and Human Services, Centers for Disease Control and Prevention; 2018. Accessed at",,,,,
+"http://wonder.cdc.gov/CancerMort-v2015.html on Jul 24, 2019 6:18:41 AM",,,,,
+---,,,,,
+Caveats:,,,,,
+"1. About rate comparisons: <ul><li> For consistency with the data on cancer incidence, the cancer sites in mortality data were",,,,,
+"grouped according to the revised SEER recodes dated January 27, 2003 (see SEER Cause of Death Recodes:",,,,,
+"http://seer.cancer.gov/codrecode/.). Because NCHS uses different groupings for some sites, the death rates in this report may",,,,,
+"differ slightly from those published by NCHS. In addition, under the ICD, there are differences in mortality and incidence",,,,,
+"coding. For example, there are several codes for mesothelioma in ICD-10 (depending on the primary site). However in ICD-O-3, one",,,,,
+code captures all of the primary sites that mesothelioma affects. Note that Kaposi sarcoma deaths included in this dataset are,,,,,
+"only those deaths with underlying cause of death attributed to Kaposi Sarcoma, and do not include deaths where the condition was",,,,,
+"a contributing cause of death, or subsequent to another underlying condition. </li><li> The population used to age-adjust the",,,,,
+"rates in this report is the 2000 U.S. standard population, which is in accordance with a 1998 recommendation of the US.",,,,,
+Department of Health and Human Services. The 2000 U.S. standard population is based on the proportion of the 2000 population in,,,,,
+"specific age groups (younger than 1 year, 1-4 years, 5-9 years, 10-14 years, 15-19 years, . . . 85 years or older); the",,,,,
+proportions of the 2000 population in these age groups serve as weights for calculating age-adjusted incidence and death rates.,,,,,
+"NCHS, however, uses a different set of age groups in its age adjustment of death rates, and thus the cancer death rates in this",,,,,
+report may differ slightly from those published by NCHS. </li><li> Deaths of persons of unknown age are not included in this,,,,,
+data set. Death rates may differ slightly from other reports where deaths of persons of unknown age are included. </li></ul>,,,,,
+"2. For the 2005 year, the Census Bureau estimates that 203,937 persons were displaced from Alabama, Louisiana, Mississippi and",,,,,
+Texas due to Hurricanes Katrina and Rita. CDC WONDER does not include the displaced persons in the 2005 population counts for,,,,,
+"these states, nor are these counts included in the summary populations for the affected division, regions or national",,,,,
+"population. However, the USCS web site does include these displaced persons in the national population figures for 2005.",,,,,
