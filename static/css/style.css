@@ -349,3 +349,44 @@ footer a:focus {
   min-height: 500px;
   width: 100%;
 }
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#map,
+body,
+html {
+  height: 100%;
+}
+/* Custom CSS*/
+
+.legend {
+color: #555;
+padding: 6px 8px;
+font: 12px Arial, Helvetica, sans-serif;
+font-weight: bold;
+background: white;
+box-shadow: 0 0 15px rgba(0,0,0,0.2);
+border-radius: 5px;
+}
+.legend ul {
+list-style-type: none;
+padding: 0;
+margin: 0;
+clear: both;
+}
+.legend li {
+display: inline-block;
+width: 30px;
+height: 22px;
+opacity: 0.7;
+}
+.legend .min {
+float: left;
+padding-bottom: 5px;
+}
+.legend .max {
+float: right;
+}
