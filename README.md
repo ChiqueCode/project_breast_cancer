@@ -57,7 +57,7 @@ If, however, medical personnel had access to a tool that would bypass the need f
      The Centers for Disease Control and Prevention National Program of Cancer Registries (NPCR).
      The National Cancer Institute Surveillance, Epidemiology and End Results (SEER) program.
 
-* Global Cancer Data [Our world in Data](https://ourworldindata.org/cancer
+* Global Cancer Data [Our world in Data](https://ourworldindata.org/cancer)
   * Data includes number and percentage of cancer incidence and mortality globally and across the US for the past decade.
   * Data is provided by:
     * Institute of Health Metrics and Evaluation (IHME), Global Burden of Disease (GBD).
@@ -66,8 +66,6 @@ If, however, medical personnel had access to a tool that would bypass the need f
   * Article includes data on number of pathologists and other physicians in American and Canadian workforce.
   * References:
     * Metter DM, Colgan TJ, Leung ST, Timmons CF, Park JY. Trends in the US and Canadian pathologist workforces from 2007 to 2017. JAMA Netw Open. 2019;2(5):e194337. doi:10.1001/jamanetworkopen.2019.4337.
-
-* WHAT DID YOU GET FROM NIH? <https://www.ncbi.nlm.nih.gov>
 
 ## Workflow
 
@@ -84,9 +82,17 @@ If, however, medical personnel had access to a tool that would bypass the need f
 
 ### Step 4: Front-End Development
 
-* We have organized our website so that we have our story and what motivates us in a separate tab (white paper), demo and case studies locate in separate tabs as well. We decided to give a lot of breathing space for our landing page in order not to overwhelm the user. "Breast cancer awareness" is our main goal for this project.
-
-Our Front-End Development tools are: Foundation (for more flexibility) and jQuery (to be toggle our request form), fontawesome (for social links). To make out website so incredibly beautiful and achieve the harmony and to feel the flow of the website we used resources such as: Google Fonts, Unsplash, Coverr, Colorhunt, Color Converter (Hsl specifically) to make the background and the font color the same with different saturation that helps to keep the transition smooth. Overall, the main goal for the website to make it user friendly.
+* We designed the landing page for our website with lots of breathing space so as not to overwhelm the user. "Breast cancer awareness" is our main goal for this project.
+* From this landing page, we have included tabs for each of the following:
+  * Our story: Visuals for global and US cancer incidence and mortality
+  * Case studies: The problem with treatment we are addressing with our app.
+  * Demo: Our machine learning app to address this problem.
+* Our Front-End Development tools are:
+  * Foundation (for more flexibility)
+  * jQuery (to be toggle our request form)
+  * fontawesome (for social links)
+* To make our website aethetically appealing, achieve visual harmony, and to maximize UX, we used resources such as Google Fonts, Unsplash, Coverr, Colorhunt, and Color Converter (Hsl specifically) to make the background and the font color the same with different saturation that helps to keep the transition smooth.
+* Overall, the main goal for the website to make it user friendly and visually appealing.
 
 ### Step 5: Machine Learning
 
