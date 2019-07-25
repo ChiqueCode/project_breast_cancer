@@ -95,12 +95,9 @@
           <div class="grid-container">
             <div class="grid-x align-middle grid-margin-x" id="app">
               <div class="cell large-6 text-center">
-<!-- Arjun new code -->
                 <h3>Select Patient ID</h3>
                 <form>
-                <select id="selPatient"onchange="submitdropdownvalue(this.value)"></select>
-                <!-- <select id="selPatient" onchange="selectPatient(this.value)"></select> -->
-<!-- End new Arjun code code -->
+                <select id="selPatient" onchange="selectPatient(this.value)"></select>
                 <table>
                     <thead>
                       <tr>
@@ -111,17 +108,12 @@
                     <tbody>
                     </tbody>
                 </table>
-<!-- Arjun new code -->
-                <button value="testvalue" type="submit" class="large button" id="analyze">Analyze</button>
                 </form>
-<!--  End new Arjun code-->
-<!--                 <button class="large button expanded" id="analyze">Analyze</button> -->
-
+                <button type="submit" class="large button expanded" id="analyze">Analyze</button>
               </div>
               <div class="cell large-6">
                 <div class="result text-center">
-                  <h1 id="diagnosis">Diagnosis: </h1>
-                  <!-- OTHER CONTENT HERE? -->
+                  <h3 id="diagnosis">Diagnosis: </h3>
                 </div>
               </div>
             </div>
